@@ -1,0 +1,3300 @@
+@prefix hh: <https://okfde.github.io/lod-budget-vocab/> .
+@prefix ns3: <https://cube.link/meta/> .
+@prefix ns5: <http://www.wikidata.org/prop/direct/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hh:ArtDerAngabe a rdfs:Class ;
+    schema:description "Ansatz/Soll/Ist."@de ;
+    schema:name "Art der Angabe"@de .
+
+hh:Ausgabetitel a rdfs:Class ;
+    owl:equivalentClass wd:Q760120 ;
+    schema:name "Ausgabetitel"@de .
+
+hh:Bereich a rdfs:Class ;
+    schema:description "Unterscheidung nach Berliner Landes- und Bezirksebene. Die Ziffer 30 steht für die Landesebene. Darunter fällt die Berliner Hauptverwaltung sowie die fünf weisungsfreien Verfassungsorgane (Abgeordnetenhaus, Verfassungsgerichtshof, Rechnungshof, Beauftragte/Beauftragter für Datenschutz und Informationsfreiheit, Bürger- und Polizeibeauftragte/Bürger- und Polizeibeauftragter des Landes Berlin). Die Ziffern 31 bis 42 umfassen die 12 Berliner Bezirksämter mit ihren Bezirksverwaltungen."@de ;
+    schema:name "Bereich"@de .
+
+hh:Einnahmetitel a rdfs:Class ;
+    owl:equivalentClass wd:Q350205 ;
+    schema:name "Einnahmetitel"@de .
+
+hh:Einzelplan a rdfs:Class,
+        ns3:Hierarchy ;
+    sh:path [ ] ;
+    ns3:hierarchyRoot hh:Einzelplan ;
+    ns3:nextInHierarchy hh:Kapitel ;
+    schema:description "In einem Einzelplan werden die Haushaltsmittel (Einnahmen, Ausgaben, Verpflichtungsermächtigungen, Planstellen und andere Stellen) veranschlagt."@de ;
+    schema:name "Einzelplan"@de .
+
+hh:Funktion a rdfs:Class ;
+    sh:path [ ] ;
+    ns3:nextInHierarchy hh:Titel ;
+    schema:description "Unterste Gliederungsebene des Funktionenplans. Sie entspricht einem Aufgabenbereich innerhalb einer öffentlichen Verwaltung."@de ;
+    schema:name "Funktion"@de .
+
+hh:Gruppe a rdfs:Class ;
+    sh:path [ ] ;
+    ns3:nextInHierarchy hh:Titel ;
+    schema:description "Unterste verbindliche Gliederungsebene des Gruppierungsplans."@de ;
+    schema:name "Gruppe"@de .
+
+hh:Hauptfunktion a rdfs:Class,
+        ns3:Hierarchy ;
+    sh:path [ ] ;
+    ns3:hierarchyRoot hh:Hauptfunktion ;
+    ns3:nextInHierarchy hh:Oberfunktion ;
+    schema:description "Oberste Gliederungsebene des Funktionenplans."@de ;
+    schema:name "Hauptfunktion"@de .
+
+hh:Hauptgruppe a rdfs:Class,
+        ns3:Hierarchy ;
+    sh:path [ ] ;
+    ns3:hierarchyRoot hh:Hauptgruppe ;
+    ns3:nextInHierarchy hh:Obergruppe ;
+    schema:description "Oberste Gliederungsebene des Gruppierungsplans."@de ;
+    schema:name "Hauptgruppe"@de .
+
+hh:Kapitel a rdfs:Class ;
+    sh:path [ ] ;
+    ns3:nextInHierarchy hh:Titel ;
+    schema:description "Gliederungsebene unterhalb der Einzelpläne, d.h. Einzelpläne sind in verschiedene Kapitel untergliedert. Die Kapitel untergliedern sich ihrerseits in die einzelnen Titel."@de ;
+    schema:name "Haushaltskapitel"@de,
+        "Kapitel"@de .
+
+hh:Oberfunktion a rdfs:Class ;
+    sh:path [ ] ;
+    ns3:nextInHierarchy hh:Funktion ;
+    schema:description "Mittlere Gliederungsebene des Funktionenplans."@de ;
+    schema:name "Oberfunktion"@de .
+
+hh:Obergruppe a rdfs:Class ;
+    sh:path [ ] ;
+    ns3:nextInHierarchy hh:Gruppe ;
+    schema:description "Mittlere Gliederungsebene des Gruppierungsplans."@de ;
+    schema:name "Obergruppe"@de .
+
+hh:Titel a rdfs:Class ;
+    schema:description "Unterste Gliederungsebene des Haushaltsplans. Die Eindeutigkeit eines Titels ist jedoch nur durch Verknüpfung mit Haushaltsjahr, Kapitel und - im Falle von Berlin - dem Bezirk gegeben."@de ;
+    schema:name "Haushaltstitel"@de,
+        "Titel"@de .
+
+hh:Ansatz a hh:ArtDerAngabe ;
+    schema:description "Geplante oder budgetierte Beträge im Haushaltsplan für Ausgaben oder Einnahmen für das Haushaltsjahr."@de ;
+    schema:name "Ansatz"@de,
+        "Haushaltsansatz"@de .
+
+hh:Funktion_011 a hh:Funktion ;
+    hh:nummer "011" ;
+    schema:description "Politische Führung"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_012 a hh:Funktion ;
+    hh:nummer "012" ;
+    schema:description "Innere Verwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_013 a hh:Funktion ;
+    hh:nummer "013" ;
+    schema:description "Informationswesen"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_014 a hh:Funktion ;
+    hh:nummer "014" ;
+    schema:description "Statistischer Dienst"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_015 a hh:Funktion ;
+    hh:nummer "015" ;
+    schema:description "Zivildienst"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_016 a hh:Funktion ;
+    hh:nummer "016" ;
+    schema:description "Hochbauverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_018 a hh:Funktion ;
+    hh:nummer "018" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger, soweit nicht unter Funktionen 038, 039, 048, 058, 068, 118 oder 138"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_019 a hh:Funktion ;
+    hh:nummer "019" ;
+    schema:description "Sonstige allgemeine Staatsaufgaben"@de ;
+    schema:isPartOf hh:Oberfunktion_01 .
+
+hh:Funktion_021 a hh:Funktion ;
+    hh:nummer "021" ;
+    schema:description "Auslandsvertretungen (nur Bund)"@de ;
+    schema:isPartOf hh:Oberfunktion_02 .
+
+hh:Funktion_022 a hh:Funktion ;
+    hh:nummer "022" ;
+    schema:description "Internationale Organisationen"@de ;
+    schema:isPartOf hh:Oberfunktion_02 .
+
+hh:Funktion_023 a hh:Funktion ;
+    hh:nummer "023" ;
+    schema:description "Wirtschaftliche Zusammenarbeit und Entwicklung"@de ;
+    schema:isPartOf hh:Oberfunktion_02 .
+
+hh:Funktion_024 a hh:Funktion ;
+    hh:nummer "024" ;
+    schema:description "Auslandsschulwesen und kulturelle Angelegenheiten im Ausland"@de ;
+    schema:isPartOf hh:Oberfunktion_02 .
+
+hh:Funktion_029 a hh:Funktion ;
+    hh:nummer "029" ;
+    schema:description "Sonstige auswärtige Angelegenheiten"@de ;
+    schema:isPartOf hh:Oberfunktion_02 .
+
+hh:Funktion_031 a hh:Funktion ;
+    hh:nummer "031" ;
+    schema:description "Bundeswehrverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_032 a hh:Funktion ;
+    hh:nummer "032" ;
+    schema:description "Deutsche Verteidigungsstreitkräfte"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_033 a hh:Funktion ;
+    hh:nummer "033" ;
+    schema:description "Verteidigungslasten im Zusammenhang mit dem Aufenthalt ausländischer Streitkräfte"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_036 a hh:Funktion ;
+    hh:nummer "036" ;
+    schema:description "Wehrforschung und wehrtechnische Entwicklung"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_037 a hh:Funktion ;
+    hh:nummer "037" ;
+    schema:description "Unterhaltssicherung"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_038 a hh:Funktion ;
+    hh:nummer "038" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich der Bundeswehrverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_039 a hh:Funktion ;
+    hh:nummer "039" ;
+    schema:description "Versorgung einschließlich Beihilfen der Soldatinnen und Soldaten der Bundeswehr"@de ;
+    schema:isPartOf hh:Oberfunktion_03 .
+
+hh:Funktion_042 a hh:Funktion ;
+    hh:nummer "042" ;
+    schema:description "Polizei"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_043 a hh:Funktion ;
+    hh:nummer "043" ;
+    schema:description "Öffentliche Ordnung"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_044 a hh:Funktion ;
+    hh:nummer "044" ;
+    schema:description "Brandschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_045 a hh:Funktion ;
+    hh:nummer "045" ;
+    schema:description "Bevölkerungs- und Katastrophenschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_046 a hh:Funktion ;
+    hh:nummer "046" ;
+    schema:description "Wetterdienst"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_047 a hh:Funktion ;
+    hh:nummer "047" ;
+    schema:description "Schutz der Verfassung"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_048 a hh:Funktion ;
+    hh:nummer "048" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich der öffentlichen Sicherheit und Ordnung"@de ;
+    schema:isPartOf hh:Oberfunktion_04 .
+
+hh:Funktion_051 a hh:Funktion ;
+    hh:nummer "051" ;
+    schema:description "Gerichte und Staatsanwaltschaften"@de ;
+    schema:isPartOf hh:Oberfunktion_05 .
+
+hh:Funktion_056 a hh:Funktion ;
+    hh:nummer "056" ;
+    schema:description "Justizvollzugsanstalten"@de ;
+    schema:isPartOf hh:Oberfunktion_05 .
+
+hh:Funktion_058 a hh:Funktion ;
+    hh:nummer "058" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich des Rechtsschutzes (nur Länder)"@de ;
+    schema:isPartOf hh:Oberfunktion_05 .
+
+hh:Funktion_059 a hh:Funktion ;
+    hh:nummer "059" ;
+    schema:description "Sonstige Rechtsschutzaufgaben"@de ;
+    schema:isPartOf hh:Oberfunktion_05 .
+
+hh:Funktion_061 a hh:Funktion ;
+    hh:nummer "061" ;
+    schema:description "Steuer- und Zollverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_06 .
+
+hh:Funktion_062 a hh:Funktion ;
+    hh:nummer "062" ;
+    schema:description "Schulden-, Vermögens- und sonstige Finanzverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_06 .
+
+hh:Funktion_068 a hh:Funktion ;
+    hh:nummer "068" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich der Finanzverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_06 .
+
+hh:Funktion_111 a hh:Funktion ;
+    hh:nummer "111" ;
+    schema:description "Unterrichtsverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_112 a hh:Funktion ;
+    hh:nummer "112" ;
+    schema:description "Öffentliche Grundschulen"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_113 a hh:Funktion ;
+    hh:nummer "113" ;
+    schema:description "Private Grundschulen"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_114 a hh:Funktion ;
+    hh:nummer "114" ;
+    schema:description "Öffentliche weiterführende allgemeinbildende Schulen (ohne Sonderschulen/Förderschulen)"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_115 a hh:Funktion ;
+    hh:nummer "115" ;
+    schema:description "Private weiterführende allgemeinbildende Schulen (ohne Sonderschulen/Förderschulen)"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_118 a hh:Funktion ;
+    hh:nummer "118" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich der Schulen (nur Länder)"@de ;
+    schema:isPartOf hh:Oberfunktion_11 .
+
+hh:Funktion_124 a hh:Funktion ;
+    hh:nummer "124" ;
+    schema:description "Öffentliche Sonderschulen/Förderschulen des allgemeinbildenden Bereichs"@de ;
+    schema:isPartOf hh:Oberfunktion_12 .
+
+hh:Funktion_125 a hh:Funktion ;
+    hh:nummer "125" ;
+    schema:description "Private Sonderschulen/Förderschulen des allgemeinbildenden Bereichs"@de ;
+    schema:isPartOf hh:Oberfunktion_12 .
+
+hh:Funktion_127 a hh:Funktion ;
+    hh:nummer "127" ;
+    schema:description "Öffentliche berufliche Schulen"@de ;
+    schema:isPartOf hh:Oberfunktion_12 .
+
+hh:Funktion_128 a hh:Funktion ;
+    hh:nummer "128" ;
+    schema:description "Private berufliche Schulen"@de ;
+    schema:isPartOf hh:Oberfunktion_12 .
+
+hh:Funktion_129 a hh:Funktion ;
+    hh:nummer "129" ;
+    schema:description "Sonstige schulische Aufgaben"@de ;
+    schema:isPartOf hh:Oberfunktion_12 .
+
+hh:Funktion_132 a hh:Funktion ;
+    hh:nummer "132" ;
+    schema:description "Hochschulkliniken"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_133 a hh:Funktion ;
+    hh:nummer "133" ;
+    schema:description "Öffentliche Hochschulen und Berufsakademien"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_134 a hh:Funktion ;
+    hh:nummer "134" ;
+    schema:description "Private Hochschulen und Berufsakademien"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_137 a hh:Funktion ;
+    hh:nummer "137" ;
+    schema:description "Deutsche Forschungsgemeinschaft"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_138 a hh:Funktion ;
+    hh:nummer "138" ;
+    schema:description "Versorgung einschließlich Beihilfen für Versorgungsempfängerinnen und Versorgungsempfänger im Bereich der Hochschulen (nur Länder)"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_139 a hh:Funktion ;
+    hh:nummer "139" ;
+    schema:description "Sonstige Hochschulaufgaben"@de ;
+    schema:isPartOf hh:Oberfunktion_13 .
+
+hh:Funktion_141 a hh:Funktion ;
+    hh:nummer "141" ;
+    schema:description "Förderung für Schülerinnen und Schüler"@de ;
+    schema:isPartOf hh:Oberfunktion_14 .
+
+hh:Funktion_142 a hh:Funktion ;
+    hh:nummer "142" ;
+    schema:description "Förderung für Studierende und wissenschaftlichen Nachwuchs"@de ;
+    schema:isPartOf hh:Oberfunktion_14 .
+
+hh:Funktion_144 a hh:Funktion ;
+    hh:nummer "144" ;
+    schema:description "Förderung für Weiterbildungsteilnehmende"@de ;
+    schema:isPartOf hh:Oberfunktion_14 .
+
+hh:Funktion_145 a hh:Funktion ;
+    hh:nummer "145" ;
+    schema:description "Schülerbeförderung"@de ;
+    schema:isPartOf hh:Oberfunktion_14 .
+
+hh:Funktion_152 a hh:Funktion ;
+    hh:nummer "152" ;
+    schema:description "Volkshochschulen"@de ;
+    schema:isPartOf hh:Oberfunktion_15 .
+
+hh:Funktion_153 a hh:Funktion ;
+    hh:nummer "153" ;
+    schema:description "Sonstige Weiterbildung (ohne Förderung für Teilnehmende)"@de ;
+    schema:isPartOf hh:Oberfunktion_15 .
+
+hh:Funktion_154 a hh:Funktion ;
+    hh:nummer "154" ;
+    schema:description "Ausbildung der Lehrkräfte"@de ;
+    schema:isPartOf hh:Oberfunktion_15 .
+
+hh:Funktion_155 a hh:Funktion ;
+    hh:nummer "155" ;
+    schema:description "Fort- und Weiterbildung der Lehrkräfte"@de ;
+    schema:isPartOf hh:Oberfunktion_15 .
+
+hh:Funktion_162 a hh:Funktion ;
+    hh:nummer "162" ;
+    schema:description "Wissenschaftliche Bibliotheken, Archive, Fachinformationszentren"@de ;
+    schema:isPartOf hh:Oberfunktion_16 .
+
+hh:Funktion_163 a hh:Funktion ;
+    hh:nummer "163" ;
+    schema:description "Wissenschaftliche Museen"@de ;
+    schema:isPartOf hh:Oberfunktion_16 .
+
+hh:Funktion_164 a hh:Funktion ;
+    hh:nummer "164" ;
+    schema:description "Gemeinsame Forschungsförderung von Bund und Ländern (ohne Deutsche Forschungsgemeinschaft)"@de ;
+    schema:isPartOf hh:Oberfunktion_16 .
+
+hh:Funktion_165 a hh:Funktion ;
+    hh:nummer "165" ;
+    schema:description "Forschung und experimentelle Entwicklung"@de ;
+    schema:isPartOf hh:Oberfunktion_16 .
+
+hh:Funktion_167 a hh:Funktion ;
+    hh:nummer "167" ;
+    schema:description "Zuschüsse an internationale wissenschaftliche Organisationen und zwischenstaatliche Forschungseinrichtungen"@de ;
+    schema:isPartOf hh:Oberfunktion_16 .
+
+hh:Funktion_181 a hh:Funktion ;
+    hh:nummer "181" ;
+    schema:description "Theater"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_182 a hh:Funktion ;
+    hh:nummer "182" ;
+    schema:description "Musikpflege"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_183 a hh:Funktion ;
+    hh:nummer "183" ;
+    schema:description "Museen, Sammlungen, Ausstellungen"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_184 a hh:Funktion ;
+    hh:nummer "184" ;
+    schema:description "Zoologische und botanische Gärten"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_185 a hh:Funktion ;
+    hh:nummer "185" ;
+    schema:description "Musikschulen"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_186 a hh:Funktion ;
+    hh:nummer "186" ;
+    schema:description "Nichtwissenschaftliche Bibliotheken"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_187 a hh:Funktion ;
+    hh:nummer "187" ;
+    schema:description "Sonstige Kulturpflege"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_188 a hh:Funktion ;
+    hh:nummer "188" ;
+    schema:description "Verwaltung für kulturelle Angelegenheiten"@de ;
+    schema:isPartOf hh:Oberfunktion_18 .
+
+hh:Funktion_195 a hh:Funktion ;
+    hh:nummer "195" ;
+    schema:description "Denkmalschutz und -pflege"@de ;
+    schema:isPartOf hh:Oberfunktion_19 .
+
+hh:Funktion_199 a hh:Funktion ;
+    hh:nummer "199" ;
+    schema:description "Kirchliche Angelegenheiten"@de ;
+    schema:isPartOf hh:Oberfunktion_19 .
+
+hh:Funktion_211 a hh:Funktion ;
+    hh:nummer "211" ;
+    schema:description "Verwaltungskostenerstattung SGB II (nur Bund)"@de ;
+    schema:isPartOf hh:Oberfunktion_21 .
+
+hh:Funktion_219 a hh:Funktion ;
+    hh:nummer "219" ;
+    schema:description "Sonstige Verwaltung für soziale Angelegenheiten"@de ;
+    schema:isPartOf hh:Oberfunktion_21 .
+
+hh:Funktion_221 a hh:Funktion ;
+    hh:nummer "221" ;
+    schema:description "Allgemeine Rentenversicherung (nur Bundesträger)"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_222 a hh:Funktion ;
+    hh:nummer "222" ;
+    schema:description "Knappschaftliche Rentenversicherung (nur Bundesträger)"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_223 a hh:Funktion ;
+    hh:nummer "223" ;
+    schema:description "Unfallversicherung"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_224 a hh:Funktion ;
+    hh:nummer "224" ;
+    schema:description "Krankenversicherung"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_225 a hh:Funktion ;
+    hh:nummer "225" ;
+    schema:description "Arbeitslosenversicherung (nur Bund)"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_226 a hh:Funktion ;
+    hh:nummer "226" ;
+    schema:description "Alterssicherung der Landwirte (nur Bund)"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_227 a hh:Funktion ;
+    hh:nummer "227" ;
+    schema:description "Pflegeversicherung"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_229 a hh:Funktion ;
+    hh:nummer "229" ;
+    schema:description "Sonstige Sozialversicherungen"@de ;
+    schema:isPartOf hh:Oberfunktion_22 .
+
+hh:Funktion_231 a hh:Funktion ;
+    hh:nummer "231" ;
+    schema:description "Kindergeld, Kinderzuschlag"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_232 a hh:Funktion ;
+    hh:nummer "232" ;
+    schema:description "Elterngeld, Erziehungsgeld und Mutterschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_233 a hh:Funktion ;
+    hh:nummer "233" ;
+    schema:description "Wohngeld"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_235 a hh:Funktion ;
+    hh:nummer "235" ;
+    schema:description "Soziale Einrichtungen"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_236 a hh:Funktion ;
+    hh:nummer "236" ;
+    schema:description "Förderung der Wohlfahrtspflege"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_237 a hh:Funktion ;
+    hh:nummer "237" ;
+    schema:description "Leistungen nach dem Unterhaltsvorschussgesetz"@de ;
+    schema:isPartOf hh:Oberfunktion_23 .
+
+hh:Funktion_241 a hh:Funktion ;
+    hh:nummer "241" ;
+    schema:description "Kriegsopferversorgung und -fürsorge und gleichartige Leistungen"@de,
+        "Leistungen der Sozialen Entschädigung"@de ;
+    schema:isPartOf hh:Oberfunktion_24 .
+
+hh:Funktion_243 a hh:Funktion ;
+    hh:nummer "243" ;
+    schema:description "Lastenausgleich"@de ;
+    schema:isPartOf hh:Oberfunktion_24 .
+
+hh:Funktion_244 a hh:Funktion ;
+    hh:nummer "244" ;
+    schema:description "Wiedergutmachung"@de ;
+    schema:isPartOf hh:Oberfunktion_24 .
+
+hh:Funktion_246 a hh:Funktion ;
+    hh:nummer "246" ;
+    schema:description "Vertriebene und Spätaussiedlerinnen und Spätaussiedler"@de ;
+    schema:isPartOf hh:Oberfunktion_24 .
+
+hh:Funktion_249 a hh:Funktion ;
+    hh:nummer "249" ;
+    schema:description "Sonstige Leistungen für Folgen von Krieg und politischen Ereignissen"@de ;
+    schema:isPartOf hh:Oberfunktion_24 .
+
+hh:Funktion_251 a hh:Funktion ;
+    hh:nummer "251" ;
+    schema:description "Arbeitslosengeld II nach dem SGB II"@de ;
+    schema:isPartOf hh:Oberfunktion_25 .
+
+hh:Funktion_252 a hh:Funktion ;
+    hh:nummer "252" ;
+    schema:description "Leistungen für Unterkunft und Heizung nach dem SGB II"@de ;
+    schema:isPartOf hh:Oberfunktion_25 .
+
+hh:Funktion_253 a hh:Funktion ;
+    hh:nummer "253" ;
+    schema:description "Aktive Arbeitsmarktpolitik"@de ;
+    schema:isPartOf hh:Oberfunktion_25 .
+
+hh:Funktion_259 a hh:Funktion ;
+    hh:nummer "259" ;
+    schema:description "Sonstige Leistungen der Grundsicherung für Arbeitsuchende nach dem SGB II"@de ;
+    schema:isPartOf hh:Oberfunktion_25 .
+
+hh:Funktion_261 a hh:Funktion ;
+    hh:nummer "261" ;
+    schema:description "Jugendarbeit und Jugendverbandsarbeit"@de ;
+    schema:isPartOf hh:Oberfunktion_26 .
+
+hh:Funktion_262 a hh:Funktion ;
+    hh:nummer "262" ;
+    schema:description "Jugendsozialarbeit"@de ;
+    schema:isPartOf hh:Oberfunktion_26 .
+
+hh:Funktion_263 a hh:Funktion ;
+    hh:nummer "263" ;
+    schema:description "Erzieherischer Kinder- und Jugendschutz, Förderung der Erziehung in der Familie"@de ;
+    schema:isPartOf hh:Oberfunktion_26 .
+
+hh:Funktion_265 a hh:Funktion ;
+    hh:nummer "265" ;
+    schema:description "Hilfen zur Erziehung und Eingliederungshilfen"@de ;
+    schema:isPartOf hh:Oberfunktion_26 .
+
+hh:Funktion_266 a hh:Funktion ;
+    hh:nummer "266" ;
+    schema:description "Weitere Aufgaben der Jugendhilfe"@de ;
+    schema:isPartOf hh:Oberfunktion_26 .
+
+hh:Funktion_281 a hh:Funktion ;
+    hh:nummer "281" ;
+    schema:description "Hilfe zum Lebensunterhalt nach dem SGB XII"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_282 a hh:Funktion ;
+    hh:nummer "282" ;
+    schema:description "Grundsicherung im Alter und bei Erwerbsminderung nach dem SGB XII"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_283 a hh:Funktion ;
+    hh:nummer "283" ;
+    schema:description "Eingliederungshilfe für Menschen mit Behinderungen nach dem SGB IX"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_284 a hh:Funktion ;
+    hh:nummer "284" ;
+    schema:description "Hilfe zur Pflege nach dem SGB XII"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_285 a hh:Funktion ;
+    hh:nummer "285" ;
+    schema:description "Weitere Leistungen nach dem SGB XII"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_286 a hh:Funktion ;
+    hh:nummer "286" ;
+    schema:description "Leistungen nach dem SGB XII - nur Flächenländer"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_287 a hh:Funktion ;
+    hh:nummer "287" ;
+    schema:description "Leistungen nach dem Asylbewerberleistungsgesetz"@de ;
+    schema:isPartOf hh:Oberfunktion_28 .
+
+hh:Funktion_311 a hh:Funktion ;
+    hh:nummer "311" ;
+    schema:description "Gesundheitsverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_31 .
+
+hh:Funktion_312 a hh:Funktion ;
+    hh:nummer "312" ;
+    schema:description "Krankenhäuser und Heilstätten"@de ;
+    schema:isPartOf hh:Oberfunktion_31 .
+
+hh:Funktion_313 a hh:Funktion ;
+    hh:nummer "313" ;
+    schema:description "Arbeitsschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_31 .
+
+hh:Funktion_314 a hh:Funktion ;
+    hh:nummer "314" ;
+    schema:description "Gesundheitsschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_31 .
+
+hh:Funktion_321 a hh:Funktion ;
+    hh:nummer "321" ;
+    schema:description "Park- und Gartenanlagen"@de ;
+    schema:isPartOf hh:Oberfunktion_32 .
+
+hh:Funktion_322 a hh:Funktion ;
+    hh:nummer "322" ;
+    schema:description "Sport"@de ;
+    schema:isPartOf hh:Oberfunktion_32 .
+
+hh:Funktion_331 a hh:Funktion ;
+    hh:nummer "331" ;
+    schema:description "Umwelt- und Naturschutzverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_33 .
+
+hh:Funktion_332 a hh:Funktion ;
+    hh:nummer "332" ;
+    schema:description "Maßnahmen des Umwelt- und Naturschutzes"@de ;
+    schema:isPartOf hh:Oberfunktion_33 .
+
+hh:Funktion_341 a hh:Funktion ;
+    hh:nummer "341" ;
+    schema:description "Verwaltung für nukleare Sicherheit und Strahlenschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_34 .
+
+hh:Funktion_342 a hh:Funktion ;
+    hh:nummer "342" ;
+    schema:description "Maßnahmen der nuklearen Sicherheit und des Strahlenschutzes"@de ;
+    schema:isPartOf hh:Oberfunktion_34 .
+
+hh:Funktion_411 a hh:Funktion ;
+    hh:nummer "411" ;
+    schema:description "Förderung des Wohnungsbaues"@de ;
+    schema:isPartOf hh:Oberfunktion_41 .
+
+hh:Funktion_412 a hh:Funktion ;
+    hh:nummer "412" ;
+    schema:description "Wohnungsbauprämie/Vermögensbildung (nur Bund)"@de ;
+    schema:isPartOf hh:Oberfunktion_41 .
+
+hh:Funktion_419 a hh:Funktion ;
+    hh:nummer "419" ;
+    schema:description "Sonstiges Wohnungswesen"@de ;
+    schema:isPartOf hh:Oberfunktion_41 .
+
+hh:Funktion_421 a hh:Funktion ;
+    hh:nummer "421" ;
+    schema:description "Geoinformation"@de ;
+    schema:isPartOf hh:Oberfunktion_42 .
+
+hh:Funktion_422 a hh:Funktion ;
+    hh:nummer "422" ;
+    schema:description "Raumordnung und Landesplanung"@de ;
+    schema:isPartOf hh:Oberfunktion_42 .
+
+hh:Funktion_423 a hh:Funktion ;
+    hh:nummer "423" ;
+    schema:description "Städtebauförderung"@de ;
+    schema:isPartOf hh:Oberfunktion_42 .
+
+hh:Funktion_511 a hh:Funktion ;
+    hh:nummer "511" ;
+    schema:description "Verwaltung für Ernährung und Landwirtschaft"@de ;
+    schema:isPartOf hh:Oberfunktion_51 .
+
+hh:Funktion_512 a hh:Funktion ;
+    hh:nummer "512" ;
+    schema:description "Forst-, Jagd- und Fischereiverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_51 .
+
+hh:Funktion_521 a hh:Funktion ;
+    hh:nummer "521" ;
+    schema:description "Agrarstruktur und ländlicher Raum"@de ;
+    schema:isPartOf hh:Oberfunktion_52 .
+
+hh:Funktion_522 a hh:Funktion ;
+    hh:nummer "522" ;
+    schema:description "Einkommenstabilisierende Maßnahmen"@de ;
+    schema:isPartOf hh:Oberfunktion_52 .
+
+hh:Funktion_523 a hh:Funktion ;
+    hh:nummer "523" ;
+    schema:description "Landwirtschaftliche Produktion, Tiergesundheit und Ernährung"@de ;
+    schema:isPartOf hh:Oberfunktion_52 .
+
+hh:Funktion_531 a hh:Funktion ;
+    hh:nummer "531" ;
+    schema:description "Forstwirtschaft und Jagd"@de ;
+    schema:isPartOf hh:Oberfunktion_53 .
+
+hh:Funktion_532 a hh:Funktion ;
+    hh:nummer "532" ;
+    schema:description "Fischerei"@de ;
+    schema:isPartOf hh:Oberfunktion_53 .
+
+hh:Funktion_623 a hh:Funktion ;
+    hh:nummer "623" ;
+    schema:description "Wasserwirtschaft und Kulturbau"@de ;
+    schema:isPartOf hh:Oberfunktion_62 .
+
+hh:Funktion_624 a hh:Funktion ;
+    hh:nummer "624" ;
+    schema:description "Talsperren, Hochwasserrückhaltebecken"@de ;
+    schema:isPartOf hh:Oberfunktion_62 .
+
+hh:Funktion_625 a hh:Funktion ;
+    hh:nummer "625" ;
+    schema:description "Küstenschutz"@de ;
+    schema:isPartOf hh:Oberfunktion_62 .
+
+hh:Funktion_631 a hh:Funktion ;
+    hh:nummer "631" ;
+    schema:description "Kohlenbergbau"@de ;
+    schema:isPartOf hh:Oberfunktion_63 .
+
+hh:Funktion_632 a hh:Funktion ;
+    hh:nummer "632" ;
+    schema:description "Sonstiger Bergbau"@de ;
+    schema:isPartOf hh:Oberfunktion_63 .
+
+hh:Funktion_634 a hh:Funktion ;
+    hh:nummer "634" ;
+    schema:description "Verarbeitende Industrie"@de ;
+    schema:isPartOf hh:Oberfunktion_63 .
+
+hh:Funktion_635 a hh:Funktion ;
+    hh:nummer "635" ;
+    schema:description "Handwerk und Kleingewerbe"@de ;
+    schema:isPartOf hh:Oberfunktion_63 .
+
+hh:Funktion_638 a hh:Funktion ;
+    hh:nummer "638" ;
+    schema:description "Baugewerbe"@de ;
+    schema:isPartOf hh:Oberfunktion_63 .
+
+hh:Funktion_641 a hh:Funktion ;
+    hh:nummer "641" ;
+    schema:description "Kernenergie"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_642 a hh:Funktion ;
+    hh:nummer "642" ;
+    schema:description "Erneuerbare Energieformen"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_643 a hh:Funktion ;
+    hh:nummer "643" ;
+    schema:description "Elektrizitätsversorgung"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_644 a hh:Funktion ;
+    hh:nummer "644" ;
+    schema:description "Wasserversorgung"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_645 a hh:Funktion ;
+    hh:nummer "645" ;
+    schema:description "Abwasserentsorgung"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_646 a hh:Funktion ;
+    hh:nummer "646" ;
+    schema:description "Abfallwirtschaft"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_647 a hh:Funktion ;
+    hh:nummer "647" ;
+    schema:description "Straßenreinigung"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_649 a hh:Funktion ;
+    hh:nummer "649" ;
+    schema:description "Sonstige Energie- und Wasserversorgung"@de ;
+    schema:isPartOf hh:Oberfunktion_64 .
+
+hh:Funktion_651 a hh:Funktion ;
+    hh:nummer "651" ;
+    schema:description "Handel"@de ;
+    schema:isPartOf hh:Oberfunktion_65 .
+
+hh:Funktion_652 a hh:Funktion ;
+    hh:nummer "652" ;
+    schema:description "Tourismus"@de ;
+    schema:isPartOf hh:Oberfunktion_65 .
+
+hh:Funktion_661 a hh:Funktion ;
+    hh:nummer "661" ;
+    schema:description "Banken und Kreditinstitute"@de ;
+    schema:isPartOf hh:Oberfunktion_66 .
+
+hh:Funktion_669 a hh:Funktion ;
+    hh:nummer "669" ;
+    schema:description "Sonstiges Geld- und Versicherungswesen"@de ;
+    schema:isPartOf hh:Oberfunktion_66 .
+
+hh:Funktion_691 a hh:Funktion ;
+    hh:nummer "691" ;
+    schema:description "Betriebliche Investitionen"@de ;
+    schema:isPartOf hh:Oberfunktion_69 .
+
+hh:Funktion_692 a hh:Funktion ;
+    hh:nummer "692" ;
+    schema:description "Verbesserung der Wirtschafts- und Infrastruktur"@de ;
+    schema:isPartOf hh:Oberfunktion_69 .
+
+hh:Funktion_711 a hh:Funktion ;
+    hh:nummer "711" ;
+    schema:description "Verwaltung für Straßen- und Brückenbau"@de ;
+    schema:isPartOf hh:Oberfunktion_71 .
+
+hh:Funktion_712 a hh:Funktion ;
+    hh:nummer "712" ;
+    schema:description "Verwaltung für Wasserstraßen und Häfen"@de ;
+    schema:isPartOf hh:Oberfunktion_71 .
+
+hh:Funktion_719 a hh:Funktion ;
+    hh:nummer "719" ;
+    schema:description "Sonstige Verkehrs- und Nachrichtenverwaltung"@de ;
+    schema:isPartOf hh:Oberfunktion_71 .
+
+hh:Funktion_721 a hh:Funktion ;
+    hh:nummer "721" ;
+    schema:description "Bundesautobahnen"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_722 a hh:Funktion ;
+    hh:nummer "722" ;
+    schema:description "Bundesstraßen"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_723 a hh:Funktion ;
+    hh:nummer "723" ;
+    schema:description "Landesstraßen"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_724 a hh:Funktion ;
+    hh:nummer "724" ;
+    schema:description "Kreisstraßen"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_725 a hh:Funktion ;
+    hh:nummer "725" ;
+    schema:description "Gemeindestraßen"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_726 a hh:Funktion ;
+    hh:nummer "726" ;
+    schema:description "Straßenbeleuchtung"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_729 a hh:Funktion ;
+    hh:nummer "729" ;
+    schema:description "Sonstiger Straßenverkehr"@de ;
+    schema:isPartOf hh:Oberfunktion_72 .
+
+hh:Funktion_731 a hh:Funktion ;
+    hh:nummer "731" ;
+    schema:description "Wasserstraßen und Häfen"@de ;
+    schema:isPartOf hh:Oberfunktion_73 .
+
+hh:Funktion_732 a hh:Funktion ;
+    hh:nummer "732" ;
+    schema:description "Förderung der Schifffahrt"@de ;
+    schema:isPartOf hh:Oberfunktion_73 .
+
+hh:Funktion_741 a hh:Funktion ;
+    hh:nummer "741" ;
+    schema:description "Öffentlicher Personennahverkehr"@de ;
+    schema:isPartOf hh:Oberfunktion_74 .
+
+hh:Funktion_742 a hh:Funktion ;
+    hh:nummer "742" ;
+    schema:description "Eisenbahnen"@de ;
+    schema:isPartOf hh:Oberfunktion_74 .
+
+hh:Funktion_771 a hh:Funktion ;
+    hh:nummer "771" ;
+    schema:description "Post und Telekommunikation"@de ;
+    schema:isPartOf hh:Oberfunktion_77 .
+
+hh:Funktion_772 a hh:Funktion ;
+    hh:nummer "772" ;
+    schema:description "Rundfunk und Fernsehen"@de ;
+    schema:isPartOf hh:Oberfunktion_77 .
+
+hh:Funktion_811 a hh:Funktion ;
+    hh:nummer "811" ;
+    schema:description "Grundvermögen"@de ;
+    schema:isPartOf hh:Oberfunktion_81 .
+
+hh:Funktion_812 a hh:Funktion ;
+    hh:nummer "812" ;
+    schema:description "Kapitalvermögen"@de ;
+    schema:isPartOf hh:Oberfunktion_81 .
+
+hh:Funktion_813 a hh:Funktion ;
+    hh:nummer "813" ;
+    schema:description "Sondervermögen"@de ;
+    schema:isPartOf hh:Oberfunktion_81 .
+
+hh:Gruppe_011 a hh:Gruppe ;
+    hh:nummer "011" ;
+    schema:description "Lohnsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_012 a hh:Gruppe ;
+    hh:nummer "012" ;
+    schema:description "Veranlagte Einkommensteuer"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_013 a hh:Gruppe ;
+    hh:nummer "013" ;
+    schema:description "Nicht veranlagte Steuern vom Ertrag (ohne Abgeltungsteuer auf Zins- und Veräußerungserträge)"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_014 a hh:Gruppe ;
+    hh:nummer "014" ;
+    schema:description "Körperschaftsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_015 a hh:Gruppe ;
+    hh:nummer "015" ;
+    schema:description "Umsatzsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_016 a hh:Gruppe ;
+    hh:nummer "016" ;
+    schema:description "Einfuhrumsatzsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_017 a hh:Gruppe ;
+    hh:nummer "017" ;
+    schema:description "Gewerbesteuerumlage"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_018 a hh:Gruppe ;
+    hh:nummer "018" ;
+    schema:description "Abgeltungsteuer auf Zins- und Veräußerungserträge"@de ;
+    schema:isPartOf hh:Obergruppe_01 .
+
+hh:Gruppe_021 a hh:Gruppe ;
+    hh:nummer "021" ;
+    schema:description "Mehrwertsteuer-Eigenmittel der EU"@de ;
+    schema:isPartOf hh:Obergruppe_02 .
+
+hh:Gruppe_022 a hh:Gruppe ;
+    hh:nummer "022" ;
+    schema:description "BNE-Eigenmittel der EU"@de ;
+    schema:isPartOf hh:Obergruppe_02 .
+
+hh:Gruppe_023 a hh:Gruppe ;
+    hh:nummer "023" ;
+    schema:description "Zölle"@de ;
+    schema:isPartOf hh:Obergruppe_02 .
+
+hh:Gruppe_024 a hh:Gruppe ;
+    hh:nummer "024" ;
+    schema:description "Abschöpfungen"@de ;
+    schema:isPartOf hh:Obergruppe_02 .
+
+hh:Gruppe_031 a hh:Gruppe ;
+    hh:nummer "031" ;
+    schema:description "Energiesteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_032 a hh:Gruppe ;
+    hh:nummer "032" ;
+    schema:description "Tabaksteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_033 a hh:Gruppe ;
+    hh:nummer "033" ;
+    schema:description "Alkoholsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_034 a hh:Gruppe ;
+    hh:nummer "034" ;
+    schema:description "Schaumweinsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_035 a hh:Gruppe ;
+    hh:nummer "035" ;
+    schema:description "Kaffeesteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_036 a hh:Gruppe ;
+    hh:nummer "036" ;
+    schema:description "Versicherungsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_037 a hh:Gruppe ;
+    hh:nummer "037" ;
+    schema:description "Stromsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_038 a hh:Gruppe ;
+    hh:nummer "038" ;
+    schema:description "Kraftfahrzeugsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_039 a hh:Gruppe ;
+    hh:nummer "039" ;
+    schema:description "Luftverkehrsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_03 .
+
+hh:Gruppe_041 a hh:Gruppe ;
+    hh:nummer "041" ;
+    schema:description "Kernbrennstoffsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_04 .
+
+hh:Gruppe_044 a hh:Gruppe ;
+    hh:nummer "044" ;
+    schema:description "Solidaritätszuschlag"@de ;
+    schema:isPartOf hh:Obergruppe_04 .
+
+hh:Gruppe_049 a hh:Gruppe ;
+    hh:nummer "049" ;
+    schema:description "Sonstige Bundessteuern"@de ;
+    schema:isPartOf hh:Obergruppe_04 .
+
+hh:Gruppe_051 a hh:Gruppe ;
+    hh:nummer "051" ;
+    schema:description "Vermögensteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_052 a hh:Gruppe ;
+    hh:nummer "052" ;
+    schema:description "Erbschaftsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_053 a hh:Gruppe ;
+    hh:nummer "053" ;
+    schema:description "Grunderwerbsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_055 a hh:Gruppe ;
+    hh:nummer "055" ;
+    schema:description "Totalisatorsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_056 a hh:Gruppe ;
+    hh:nummer "056" ;
+    schema:description "Andere Rennwettsteuern"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_057 a hh:Gruppe ;
+    hh:nummer "057" ;
+    schema:description "Lotteriesteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_058 a hh:Gruppe ;
+    hh:nummer "058" ;
+    schema:description "Andere Steuern nach dem Rennwett- und Lotteriegesetz"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_059 a hh:Gruppe ;
+    hh:nummer "059" ;
+    schema:description "Feuerschutzsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_05 .
+
+hh:Gruppe_061 a hh:Gruppe ;
+    hh:nummer "061" ;
+    schema:description "Biersteuer"@de ;
+    schema:isPartOf hh:Obergruppe_06 .
+
+hh:Gruppe_062 a hh:Gruppe ;
+    hh:nummer "062" ;
+    schema:description "Online-Casinospielsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_06 .
+
+hh:Gruppe_069 a hh:Gruppe ;
+    hh:nummer "069" ;
+    schema:description "Sonstige Landessteuern"@de ;
+    schema:isPartOf hh:Obergruppe_06 .
+
+hh:Gruppe_071 a hh:Gruppe ;
+    hh:nummer "071" ;
+    schema:description "Gemeindeanteil an der Lohnsteuer und der veranlagten Einkommensteuer"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_072 a hh:Gruppe ;
+    hh:nummer "072" ;
+    schema:description "Grundsteuer A"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_073 a hh:Gruppe ;
+    hh:nummer "073" ;
+    schema:description "Grundsteuer B"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_074 a hh:Gruppe ;
+    hh:nummer "074" ;
+    schema:description "Grundsteuer C"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_075 a hh:Gruppe ;
+    hh:nummer "075" ;
+    schema:description "Gewerbesteuer"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_076 a hh:Gruppe ;
+    hh:nummer "076" ;
+    schema:description "Gemeindeanteil an der Umsatzsteuer"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_077 a hh:Gruppe ;
+    hh:nummer "077" ;
+    schema:description "Gewerbesteuerumlage"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_078 a hh:Gruppe ;
+    hh:nummer "078" ;
+    schema:description "Gemeindeanteil an der Abgeltungsteuer auf Zins- und Veräußerungserträge"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_079 a hh:Gruppe ;
+    hh:nummer "079" ;
+    schema:description "Gewerbesteuer im länderangrenzenden Küstengewässer oder Festlandsockel (abzüglich Gewerbesteuerumlage)"@de ;
+    schema:isPartOf hh:Obergruppe_07 .
+
+hh:Gruppe_082 a hh:Gruppe ;
+    hh:nummer "082" ;
+    schema:description "Vergnügungsteuern"@de ;
+    schema:isPartOf hh:Obergruppe_08 .
+
+hh:Gruppe_083 a hh:Gruppe ;
+    hh:nummer "083" ;
+    schema:description "Hundesteuer"@de ;
+    schema:isPartOf hh:Obergruppe_08 .
+
+hh:Gruppe_089 a hh:Gruppe ;
+    hh:nummer "089" ;
+    schema:description "Sonstige Gemeindesteuern (nur Stadtstaaten)"@de ;
+    schema:isPartOf hh:Obergruppe_08 .
+
+hh:Gruppe_092 a hh:Gruppe ;
+    hh:nummer "092" ;
+    schema:description "Münzeinnahmen (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_09 .
+
+hh:Gruppe_093 a hh:Gruppe ;
+    hh:nummer "093" ;
+    schema:description "Abgaben von Spielbanken"@de ;
+    schema:isPartOf hh:Obergruppe_09 .
+
+hh:Gruppe_099 a hh:Gruppe ;
+    hh:nummer "099" ;
+    schema:description "Sonstige steuerähnliche Abgaben"@de ;
+    schema:isPartOf hh:Obergruppe_09 .
+
+hh:Gruppe_111 a hh:Gruppe ;
+    hh:nummer "111" ;
+    schema:description "Gebühren, sonstige Entgelte"@de ;
+    schema:isPartOf hh:Obergruppe_11 .
+
+hh:Gruppe_112 a hh:Gruppe ;
+    hh:nummer "112" ;
+    schema:description "Geldstrafen, Geldbußen und Zwangsgelder (einschl. der damit zusammenhängenden Gerichts- und Verwaltungskosten)"@de ;
+    schema:isPartOf hh:Obergruppe_11 .
+
+hh:Gruppe_119 a hh:Gruppe ;
+    hh:nummer "119" ;
+    schema:description "Sonstige Verwaltungseinnahmen"@de ;
+    schema:isPartOf hh:Obergruppe_11 .
+
+hh:Gruppe_121 a hh:Gruppe ;
+    hh:nummer "121" ;
+    schema:description "Einnahmen aus Gewinnen von Unternehmen und Beteiligungen"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_122 a hh:Gruppe ;
+    hh:nummer "122" ;
+    schema:description "Konzessionsabgaben"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_123 a hh:Gruppe ;
+    hh:nummer "123" ;
+    schema:description "Einnahmen aus staatlichen Glücksspielen"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_124 a hh:Gruppe ;
+    hh:nummer "124" ;
+    schema:description "Mieten und Pachten"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_125 a hh:Gruppe ;
+    hh:nummer "125" ;
+    schema:description "Einnahmen aus der Veräußerung von beweglichen Sachen und Diensten aus wirtschaftlicher Tätigkeit"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_126 a hh:Gruppe ;
+    hh:nummer "126" ;
+    schema:description "Einnahmen aus der Bereitstellung natürlicher Ressourcen"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_129 a hh:Gruppe ;
+    hh:nummer "129" ;
+    schema:description "Sonstige Einnahmen aus wirtschaftlicher Tätigkeit und aus Vermögen (ohne Zinsen)"@de ;
+    schema:isPartOf hh:Obergruppe_12 .
+
+hh:Gruppe_131 a hh:Gruppe ;
+    hh:nummer "131" ;
+    schema:description "Einnahmen aus der Veräußerung von unbeweglichen Sachen, soweit nicht Gruppe 135"@de ;
+    schema:isPartOf hh:Obergruppe_13 .
+
+hh:Gruppe_132 a hh:Gruppe ;
+    hh:nummer "132" ;
+    schema:description "Einnahmen aus der Veräußerung von beweglichen Sachen"@de ;
+    schema:isPartOf hh:Obergruppe_13 .
+
+hh:Gruppe_133 a hh:Gruppe ;
+    hh:nummer "133" ;
+    schema:description "Einnahmen aus der Veräußerung von Beteiligungen und sonstigem Kapitalvermögen"@de ;
+    schema:isPartOf hh:Obergruppe_13 .
+
+hh:Gruppe_134 a hh:Gruppe ;
+    hh:nummer "134" ;
+    schema:description "Kapitalrückzahlungen"@de ;
+    schema:isPartOf hh:Obergruppe_13 .
+
+hh:Gruppe_135 a hh:Gruppe ;
+    hh:nummer "135" ;
+    schema:description "Einnahmen aus der Veräußerung von unbebauten Grundstücken"@de ;
+    schema:isPartOf hh:Obergruppe_13 .
+
+hh:Gruppe_141 a hh:Gruppe ;
+    hh:nummer "141" ;
+    schema:description "Einnahmen aus der Inanspruchnahme von Gewährleistungen aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_14 .
+
+hh:Gruppe_146 a hh:Gruppe ;
+    hh:nummer "146" ;
+    schema:description "Einnahmen aus der Inanspruchnahme von Gewährleistungen aus dem Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_14 .
+
+hh:Gruppe_151 a hh:Gruppe ;
+    hh:nummer "151" ;
+    schema:description "Zinseinnahmen vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_152 a hh:Gruppe ;
+    hh:nummer "152" ;
+    schema:description "Zinseinnahmen von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_153 a hh:Gruppe ;
+    hh:nummer "153" ;
+    schema:description "Zinseinnahmen von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_154 a hh:Gruppe ;
+    hh:nummer "154" ;
+    schema:description "Zinseinnahmen von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_156 a hh:Gruppe ;
+    hh:nummer "156" ;
+    schema:description "Zinseinnahmen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_157 a hh:Gruppe ;
+    hh:nummer "157" ;
+    schema:description "Zinseinnahmen von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_15 .
+
+hh:Gruppe_161 a hh:Gruppe ;
+    hh:nummer "161" ;
+    schema:description "Zinseinnahmen von öffentlichen Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_16 .
+
+hh:Gruppe_162 a hh:Gruppe ;
+    hh:nummer "162" ;
+    schema:description "Sonstige Zinseinnahmen aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_16 .
+
+hh:Gruppe_166 a hh:Gruppe ;
+    hh:nummer "166" ;
+    schema:description "Zinseinnahmen aus dem Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_16 .
+
+hh:Gruppe_171 a hh:Gruppe ;
+    hh:nummer "171" ;
+    schema:description "Darlehensrückflüsse vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_172 a hh:Gruppe ;
+    hh:nummer "172" ;
+    schema:description "Darlehensrückflüsse von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_173 a hh:Gruppe ;
+    hh:nummer "173" ;
+    schema:description "Darlehensrückflüsse von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_174 a hh:Gruppe ;
+    hh:nummer "174" ;
+    schema:description "Darlehensrückflüsse von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_176 a hh:Gruppe ;
+    hh:nummer "176" ;
+    schema:description "Darlehensrückflüsse von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_177 a hh:Gruppe ;
+    hh:nummer "177" ;
+    schema:description "Darlehensrückflüsse von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_17 .
+
+hh:Gruppe_181 a hh:Gruppe ;
+    hh:nummer "181" ;
+    schema:description "Darlehensrückflüsse von öffentlichen Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_18 .
+
+hh:Gruppe_182 a hh:Gruppe ;
+    hh:nummer "182" ;
+    schema:description "Sonstige Darlehensrückflüsse aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_18 .
+
+hh:Gruppe_186 a hh:Gruppe ;
+    hh:nummer "186" ;
+    schema:description "Darlehensrückflüsse aus dem Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_18 .
+
+hh:Gruppe_211 a hh:Gruppe ;
+    hh:nummer "211" ;
+    schema:description "Allgemeine Zuweisungen vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_212 a hh:Gruppe ;
+    hh:nummer "212" ;
+    schema:description "Allgemeine Zuweisungen von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_213 a hh:Gruppe ;
+    hh:nummer "213" ;
+    schema:description "Allgemeine Zuweisungen von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_214 a hh:Gruppe ;
+    hh:nummer "214" ;
+    schema:description "Allgemeine Zuweisungen von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_216 a hh:Gruppe ;
+    hh:nummer "216" ;
+    schema:description "Allgemeine Zuweisungen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_217 a hh:Gruppe ;
+    hh:nummer "217" ;
+    schema:description "Allgemeine Zuweisungen von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_21 .
+
+hh:Gruppe_221 a hh:Gruppe ;
+    hh:nummer "221" ;
+    schema:description "Schuldendiensthilfen vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_222 a hh:Gruppe ;
+    hh:nummer "222" ;
+    schema:description "Schuldendiensthilfen von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_223 a hh:Gruppe ;
+    hh:nummer "223" ;
+    schema:description "Schuldendiensthilfen von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_224 a hh:Gruppe ;
+    hh:nummer "224" ;
+    schema:description "Schuldendiensthilfen von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_226 a hh:Gruppe ;
+    hh:nummer "226" ;
+    schema:description "Schuldendiensthilfen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_227 a hh:Gruppe ;
+    hh:nummer "227" ;
+    schema:description "Schuldendiensthilfen von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_22 .
+
+hh:Gruppe_231 a hh:Gruppe ;
+    hh:nummer "231" ;
+    schema:description "Sonstige Zuweisungen vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_232 a hh:Gruppe ;
+    hh:nummer "232" ;
+    schema:description "Sonstige Zuweisungen von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_233 a hh:Gruppe ;
+    hh:nummer "233" ;
+    schema:description "Sonstige Zuweisungen von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_234 a hh:Gruppe ;
+    hh:nummer "234" ;
+    schema:description "Sonstige Zuweisungen von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_235 a hh:Gruppe ;
+    hh:nummer "235" ;
+    schema:description "Sonstige Zuweisungen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_236 a hh:Gruppe ;
+    hh:nummer "236" ;
+    schema:description "Erstattungen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_237 a hh:Gruppe ;
+    hh:nummer "237" ;
+    schema:description "Sonstige Zuweisungen von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_23 .
+
+hh:Gruppe_261 a hh:Gruppe ;
+    hh:nummer "261" ;
+    schema:description "Schuldendiensthilfen und Erstattungen von Verwaltungsausgaben aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_26 .
+
+hh:Gruppe_266 a hh:Gruppe ;
+    hh:nummer "266" ;
+    schema:description "Schuldendiensthilfen und Erstattungen von Verwaltungsausgaben aus dem Ausland, soweit nicht von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_26 .
+
+hh:Gruppe_271 a hh:Gruppe ;
+    hh:nummer "271" ;
+    schema:description "Erstattungen von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_27 .
+
+hh:Gruppe_272 a hh:Gruppe ;
+    hh:nummer "272" ;
+    schema:description "Sonstige Zuschüsse von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_27 .
+
+hh:Gruppe_281 a hh:Gruppe ;
+    hh:nummer "281" ;
+    schema:description "Sonstige Erstattungen aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_28 .
+
+hh:Gruppe_282 a hh:Gruppe ;
+    hh:nummer "282" ;
+    schema:description "Sonstige Zuschüsse aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_28 .
+
+hh:Gruppe_286 a hh:Gruppe ;
+    hh:nummer "286" ;
+    schema:description "Sonstige Erstattungen aus dem Ausland, soweit nicht von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_28 .
+
+hh:Gruppe_287 a hh:Gruppe ;
+    hh:nummer "287" ;
+    schema:description "Sonstige Zuschüsse aus dem Ausland, soweit nicht von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_28 .
+
+hh:Gruppe_291 a hh:Gruppe ;
+    hh:nummer "291" ;
+    schema:description "Vermögensübertragungen vom Bund, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_292 a hh:Gruppe ;
+    hh:nummer "292" ;
+    schema:description "Vermögensübertragungen von Ländern, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_293 a hh:Gruppe ;
+    hh:nummer "293" ;
+    schema:description "Vermögensübertragungen von Gemeinden und Gemeindeverbänden, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_297 a hh:Gruppe ;
+    hh:nummer "297" ;
+    schema:description "Vermögensübertragungen von Unternehmen, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_298 a hh:Gruppe ;
+    hh:nummer "298" ;
+    schema:description "Vermögensübertragungen von Sonstigen aus dem Inland, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_299 a hh:Gruppe ;
+    hh:nummer "299" ;
+    schema:description "Vermögensübertragungen aus dem Ausland, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_29 .
+
+hh:Gruppe_311 a hh:Gruppe ;
+    hh:nummer "311" ;
+    schema:description "Schuldenaufnahmen beim Bund"@de ;
+    schema:isPartOf hh:Obergruppe_31 .
+
+hh:Gruppe_312 a hh:Gruppe ;
+    hh:nummer "312" ;
+    schema:description "Schuldenaufnahmen bei Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_31 .
+
+hh:Gruppe_313 a hh:Gruppe ;
+    hh:nummer "313" ;
+    schema:description "Schuldenaufnahmen bei Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_31 .
+
+hh:Gruppe_314 a hh:Gruppe ;
+    hh:nummer "314" ;
+    schema:description "Schuldenaufnahmen bei Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_31 .
+
+hh:Gruppe_317 a hh:Gruppe ;
+    hh:nummer "317" ;
+    schema:description "Schuldenaufnahmen bei Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_31 .
+
+hh:Gruppe_321 a hh:Gruppe ;
+    hh:nummer "321" ;
+    schema:description "Schuldenaufnahmen bei öffentlichen Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_32 .
+
+hh:Gruppe_322 a hh:Gruppe ;
+    hh:nummer "322" ;
+    schema:description "Schuldenaufnahmen bei Sozialversicherungsträgern und der"@de ;
+    schema:isPartOf hh:Obergruppe_32 .
+
+hh:Gruppe_325 a hh:Gruppe ;
+    hh:nummer "325" ;
+    schema:description "Schuldenaufnahmen auf dem sonstigen Kreditmarkt im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_32 .
+
+hh:Gruppe_326 a hh:Gruppe ;
+    hh:nummer "326" ;
+    schema:description "Schuldenaufnahmen im Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_32 .
+
+hh:Gruppe_331 a hh:Gruppe ;
+    hh:nummer "331" ;
+    schema:description "Zuweisungen für Investitionen vom Bund"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_332 a hh:Gruppe ;
+    hh:nummer "332" ;
+    schema:description "Zuweisungen für Investitionen von Ländern"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_333 a hh:Gruppe ;
+    hh:nummer "333" ;
+    schema:description "Zuweisungen für Investitionen von Gemeinden und Gemeindeverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_334 a hh:Gruppe ;
+    hh:nummer "334" ;
+    schema:description "Zuweisungen für Investitionen von Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_336 a hh:Gruppe ;
+    hh:nummer "336" ;
+    schema:description "Zuweisungen für Investitionen von Sozialversicherungsträgern sowie von der Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_337 a hh:Gruppe ;
+    hh:nummer "337" ;
+    schema:description "Zuweisungen für Investitionen von Zweckverbänden"@de ;
+    schema:isPartOf hh:Obergruppe_33 .
+
+hh:Gruppe_341 a hh:Gruppe ;
+    hh:nummer "341" ;
+    schema:description "Beiträge"@de ;
+    schema:isPartOf hh:Obergruppe_34 .
+
+hh:Gruppe_342 a hh:Gruppe ;
+    hh:nummer "342" ;
+    schema:description "Sonstige Zuschüsse für Investitionen aus dem Inland"@de ;
+    schema:isPartOf hh:Obergruppe_34 .
+
+hh:Gruppe_346 a hh:Gruppe ;
+    hh:nummer "346" ;
+    schema:description "Zuschüsse für Investitionen von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_34 .
+
+hh:Gruppe_347 a hh:Gruppe ;
+    hh:nummer "347" ;
+    schema:description "Sonstige Zuschüsse für Investitionen aus dem Ausland, soweit nicht von der EU"@de ;
+    schema:isPartOf hh:Obergruppe_34 .
+
+hh:Gruppe_352 a hh:Gruppe ;
+    hh:nummer "352" ;
+    schema:description "Entnahmen aus Betriebsmittelrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_35 .
+
+hh:Gruppe_355 a hh:Gruppe ;
+    hh:nummer "355" ;
+    schema:description "Entnahmen aus Konjunkturausgleichsrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_35 .
+
+hh:Gruppe_356 a hh:Gruppe ;
+    hh:nummer "356" ;
+    schema:description "Entnahmen aus Fonds und Stöcken"@de ;
+    schema:isPartOf hh:Obergruppe_35 .
+
+hh:Gruppe_359 a hh:Gruppe ;
+    hh:nummer "359" ;
+    schema:description "Entnahmen aus sonstigen Rücklagen"@de ;
+    schema:isPartOf hh:Obergruppe_35 .
+
+hh:Gruppe_371 a hh:Gruppe ;
+    hh:nummer "371" ;
+    schema:description "Globale Mehreinnahmen"@de ;
+    schema:isPartOf hh:Obergruppe_37 .
+
+hh:Gruppe_372 a hh:Gruppe ;
+    hh:nummer "372" ;
+    schema:description "Globale Mindereinnahmen"@de ;
+    schema:isPartOf hh:Obergruppe_37 .
+
+hh:Gruppe_381 a hh:Gruppe ;
+    hh:nummer "381" ;
+    schema:description "Verrechnungen zwischen Kapiteln"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_382 a hh:Gruppe ;
+    hh:nummer "382" ;
+    schema:description "Durchlaufende Posten"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_385 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_384 ;
+    hh:nummer "385" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_386 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_384 ;
+    hh:nummer "386" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_389 a hh:Gruppe ;
+    hh:nummer "389" ;
+    schema:description "Sonstige haushaltstechnische Verrechnungen"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_411 a hh:Gruppe ;
+    hh:nummer "411" ;
+    schema:description "Aufwendungen für Abgeordnete"@de ;
+    schema:isPartOf hh:Obergruppe_41 .
+
+hh:Gruppe_412 a hh:Gruppe ;
+    hh:nummer "412" ;
+    schema:description "Aufwendungen für ehrenamtlich Tätige"@de ;
+    schema:isPartOf hh:Obergruppe_41 .
+
+hh:Gruppe_421 a hh:Gruppe ;
+    hh:nummer "421" ;
+    schema:description "Bezüge der Bundespräsidentin, des Bundespräsidenten, der Bundeskanzlerin, des Bundeskanzlers, der Ministerpräsidentin, des Ministerpräsidenten, der Bürgermeisterinnen, der Bürgermeister, der Ministerinnen, der Minister, der Senatorinnen, der Senatoren, der Parlamentarischen Staatssekretärinnen, der Parlamentarischen Staatssekretäre und sonstiger Amtsträgerinnen und Amtsträger"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_422 a hh:Gruppe ;
+    hh:nummer "422" ;
+    schema:description "Bezüge und Nebenleistungen der Beamtinnen, Beamten, Richterinnen und Richter"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_423 a hh:Gruppe ;
+    hh:nummer "423" ;
+    schema:description "Bezüge und Nebenleistungen der Berufssoldatinnen und Berufssoldaten und der Soldatinnen und Soldaten auf Zeit, Wehrsold und Nebenleistungen der Freiwilligen Wehrdienst Leistenden sowie Restzahlungen von Sold der Zivildienstleistenden (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_424 a hh:Gruppe ;
+    hh:nummer "424" ;
+    schema:description "Zuführung an die Versorgungsrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_427 a hh:Gruppe ;
+    hh:nummer "427" ;
+    schema:description "Beschäftigungsentgelte, Vergütungen, Honorare für nebenamtlich und nebenberuflich Tätige"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_428 a hh:Gruppe ;
+    hh:nummer "428" ;
+    schema:description "Entgelte der Arbeitnehmerinnen und Arbeitnehmer"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_429 a hh:Gruppe ;
+    hh:nummer "429" ;
+    schema:description "Nicht aufteilbare Bezüge, Entgelte und Nebenleistungen"@de ;
+    schema:isPartOf hh:Obergruppe_42 .
+
+hh:Gruppe_431 a hh:Gruppe ;
+    hh:nummer "431" ;
+    schema:description "Versorgungsbezüge der Bundespräsidentinnen, der Bundespräsidenten, der Bundeskanzlerinnen, der Bundeskanzler, der Ministerpräsidentinnen, der Ministerpräsidenten, der Bürgermeisterinnen, der Bürgermeister, der Ministerinnen, der Minister, der Senatorinnen, der Senatoren, der Parlamentarischen Staatssekretärinnen, der Parlamentarischen Staatssekretäre und sonstiger Amtsträgerinnen und Amtsträger"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_432 a hh:Gruppe ;
+    hh:nummer "432" ;
+    schema:description "Versorgungsbezüge der Beamtinnen, Beamten, Richterinnen und Richter"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_433 a hh:Gruppe ;
+    hh:nummer "433" ;
+    schema:description "Versorgungsbezüge der Soldatinnen und Soldaten (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_434 a hh:Gruppe ;
+    hh:nummer "434" ;
+    schema:description "Zuführung an die Versorgungsrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_437 a hh:Gruppe ;
+    hh:nummer "437" ;
+    schema:description "Versorgungsbezüge nach G 131"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_438 a hh:Gruppe ;
+    hh:nummer "438" ;
+    schema:description "Versorgungsbezüge der Arbeitnehmerinnen und Arbeitnehmer"@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_439 a hh:Gruppe ;
+    hh:nummer "439" ;
+    schema:description "Sonstige Versorgungsbezüge und dgl."@de ;
+    schema:isPartOf hh:Obergruppe_43 .
+
+hh:Gruppe_441 a hh:Gruppe ;
+    hh:nummer "441" ;
+    schema:description "Beihilfen, soweit nicht für Versorgungsempfängerinnen und Versorgungsempfänger"@de ;
+    schema:isPartOf hh:Obergruppe_44 .
+
+hh:Gruppe_443 a hh:Gruppe ;
+    hh:nummer "443" ;
+    schema:description "Fürsorgeleistungen und Unterstützungen"@de ;
+    schema:isPartOf hh:Obergruppe_44 .
+
+hh:Gruppe_446 a hh:Gruppe ;
+    hh:nummer "446" ;
+    schema:description "Beihilfen für Versorgungsempfängerinnen, Versorgungsempfänger und dgl."@de ;
+    schema:isPartOf hh:Obergruppe_44 .
+
+hh:Gruppe_452 a hh:Gruppe ;
+    hh:nummer "452" ;
+    schema:description "Personalbezogene Zahlungen an die Sozialversicherungsträger, soweit nicht unter Obergruppen 41 bis 44 erfasst"@de ;
+    schema:isPartOf hh:Obergruppe_45 .
+
+hh:Gruppe_453 a hh:Gruppe ;
+    hh:nummer "453" ;
+    schema:description "Trennungsgeld oder -entschädigung, Umzugskostenvergütungen"@de ;
+    schema:isPartOf hh:Obergruppe_45 .
+
+hh:Gruppe_459 a hh:Gruppe ;
+    hh:nummer "459" ;
+    schema:description "Sonstige personalbezogene Ausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_45 .
+
+hh:Gruppe_461 a hh:Gruppe ;
+    hh:nummer "461" ;
+    schema:description "Globale Mehrausgaben für Personalausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_46 .
+
+hh:Gruppe_462 a hh:Gruppe ;
+    hh:nummer "462" ;
+    schema:description "Globale Minderausgaben für Personalausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_46 .
+
+hh:Gruppe_511 a hh:Gruppe ;
+    hh:nummer "511" ;
+    schema:description "Geschäftsbedarf und Kommunikation sowie Geräte, Ausstattungs- und"@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_514 a hh:Gruppe ;
+    hh:nummer "514" ;
+    schema:description "Verbrauchsmittel, Haltung von Fahrzeugen und dgl."@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_516 a hh:Gruppe ;
+    hh:nummer "516" ;
+    schema:description "Nicht aufteilbare sächliche Verwaltungsausgaben bei ÖPP-Projekten"@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_517 a hh:Gruppe ;
+    hh:nummer "517" ;
+    schema:description "Bewirtschaftung der Grundstücke, Gebäude und Räume"@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_518 a hh:Gruppe ;
+    hh:nummer "518" ;
+    schema:description "Mieten und Pachten"@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_519 a hh:Gruppe ;
+    hh:nummer "519" ;
+    schema:description "Unterhaltung der Grundstücke und baulichen Anlagen"@de ;
+    schema:isPartOf hh:Obergruppe_51 .
+
+hh:Gruppe_521 a hh:Gruppe ;
+    hh:nummer "521" ;
+    schema:description "Unterhaltung des sonstigen unbeweglichen Vermögens"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_524 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "524" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_525 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "525" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_526 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "526" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_527 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "527" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_528 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "528" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_529 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_523 ;
+    hh:nummer "529" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_531 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "531" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_532 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "532" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_533 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "533" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_534 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "534" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_535 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "535" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_536 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "536" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_537 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "537" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_538 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "538" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_539 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_530 ;
+    hh:nummer "539" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Gruppe_541 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "541" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_542 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "542" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_543 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "543" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_544 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "544" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_545 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "545" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_546 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_540 ;
+    hh:nummer "546" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_547 a hh:Gruppe ;
+    hh:nummer "547" ;
+    schema:description "Nicht aufteilbare sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_548 a hh:Gruppe ;
+    hh:nummer "548" ;
+    schema:description "Globale Mehrausgaben für sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_549 a hh:Gruppe ;
+    hh:nummer "549" ;
+    schema:description "Globale Minderausgaben für sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Gruppe_551 a hh:Gruppe ;
+    hh:nummer "551" ;
+    schema:description "Wehrforschung, wehrtechnische und sonstige militärische Entwicklung und Erprobung"@de ;
+    schema:isPartOf hh:Obergruppe_55 .
+
+hh:Gruppe_553 a hh:Gruppe ;
+    hh:nummer "553" ;
+    schema:description "Materialerhaltung"@de ;
+    schema:isPartOf hh:Obergruppe_55 .
+
+hh:Gruppe_554 a hh:Gruppe ;
+    hh:nummer "554" ;
+    schema:description "Militärische Beschaffungen"@de ;
+    schema:isPartOf hh:Obergruppe_55 .
+
+hh:Gruppe_558 a hh:Gruppe ;
+    hh:nummer "558" ;
+    schema:description "Militärische Anlagen einschl. kleine Neu-, Um- und Erweiterungsbauten"@de ;
+    schema:isPartOf hh:Obergruppe_55 .
+
+hh:Gruppe_559 a hh:Gruppe ;
+    hh:nummer "559" ;
+    schema:description "Beiträge zu Beschaffungsvorhaben und zu Baumaßnahmen Dritter"@de ;
+    schema:isPartOf hh:Obergruppe_55 .
+
+hh:Gruppe_561 a hh:Gruppe ;
+    hh:nummer "561" ;
+    schema:description "Zinsausgaben an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_56 .
+
+hh:Gruppe_562 a hh:Gruppe ;
+    hh:nummer "562" ;
+    schema:description "Zinsausgaben an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_56 .
+
+hh:Gruppe_563 a hh:Gruppe ;
+    hh:nummer "563" ;
+    schema:description "Zinsausgaben an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_56 .
+
+hh:Gruppe_564 a hh:Gruppe ;
+    hh:nummer "564" ;
+    schema:description "Zinsausgaben an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_56 .
+
+hh:Gruppe_567 a hh:Gruppe ;
+    hh:nummer "567" ;
+    schema:description "Zinsausgaben an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_56 .
+
+hh:Gruppe_571 a hh:Gruppe ;
+    hh:nummer "571" ;
+    schema:description "Zinsausgaben an öffentliche Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_57 .
+
+hh:Gruppe_572 a hh:Gruppe ;
+    hh:nummer "572" ;
+    schema:description "Zinsausgaben an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_57 .
+
+hh:Gruppe_573 a hh:Gruppe ;
+    hh:nummer "573" ;
+    schema:description "Zinsausgaben für Ausgleichsforderungen (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_57 .
+
+hh:Gruppe_575 a hh:Gruppe ;
+    hh:nummer "575" ;
+    schema:description "Zinsausgaben an sonstigen inländischen Kreditmarkt"@de ;
+    schema:isPartOf hh:Obergruppe_57 .
+
+hh:Gruppe_576 a hh:Gruppe ;
+    hh:nummer "576" ;
+    schema:description "Zinsausgaben an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_57 .
+
+hh:Gruppe_581 a hh:Gruppe ;
+    hh:nummer "581" ;
+    schema:description "Tilgungsausgaben an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_58 .
+
+hh:Gruppe_582 a hh:Gruppe ;
+    hh:nummer "582" ;
+    schema:description "Tilgungsausgaben an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_58 .
+
+hh:Gruppe_583 a hh:Gruppe ;
+    hh:nummer "583" ;
+    schema:description "Tilgungsausgaben an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_58 .
+
+hh:Gruppe_584 a hh:Gruppe ;
+    hh:nummer "584" ;
+    schema:description "Tilgungsausgaben an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_58 .
+
+hh:Gruppe_587 a hh:Gruppe ;
+    hh:nummer "587" ;
+    schema:description "Tilgungsausgaben an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_58 .
+
+hh:Gruppe_591 a hh:Gruppe ;
+    hh:nummer "591" ;
+    schema:description "Tilgungsausgaben an öffentliche Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_59 .
+
+hh:Gruppe_592 a hh:Gruppe ;
+    hh:nummer "592" ;
+    schema:description "Tilgungsausgaben an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_59 .
+
+hh:Gruppe_593 a hh:Gruppe ;
+    hh:nummer "593" ;
+    schema:description "Tilgungsausgaben für Ausgleichsforderungen (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_59 .
+
+hh:Gruppe_595 a hh:Gruppe ;
+    hh:nummer "595" ;
+    schema:description "Tilgungsausgaben an sonstigen Kreditmarkt im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_59 .
+
+hh:Gruppe_596 a hh:Gruppe ;
+    hh:nummer "596" ;
+    schema:description "Tilgungsausgaben an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_59 .
+
+hh:Gruppe_611 a hh:Gruppe ;
+    hh:nummer "611" ;
+    schema:description "Allgemeine Zuweisungen an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_612 a hh:Gruppe ;
+    hh:nummer "612" ;
+    schema:description "Allgemeine Zuweisungen an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_613 a hh:Gruppe ;
+    hh:nummer "613" ;
+    schema:description "Allgemeine Zuweisungen an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_614 a hh:Gruppe ;
+    hh:nummer "614" ;
+    schema:description "Allgemeine Zuweisungen an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_616 a hh:Gruppe ;
+    hh:nummer "616" ;
+    schema:description "Allgemeine Zuweisungen an Sozialversicherungsträger sowie an die"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_617 a hh:Gruppe ;
+    hh:nummer "617" ;
+    schema:description "Allgemeine Zuweisungen an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_61 .
+
+hh:Gruppe_621 a hh:Gruppe ;
+    hh:nummer "621" ;
+    schema:description "Schuldendiensthilfen an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_622 a hh:Gruppe ;
+    hh:nummer "622" ;
+    schema:description "Schuldendiensthilfen an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_623 a hh:Gruppe ;
+    hh:nummer "623" ;
+    schema:description "Schuldendiensthilfen an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_624 a hh:Gruppe ;
+    hh:nummer "624" ;
+    schema:description "Schuldendiensthilfen an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_626 a hh:Gruppe ;
+    hh:nummer "626" ;
+    schema:description "Schuldendiensthilfen an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_627 a hh:Gruppe ;
+    hh:nummer "627" ;
+    schema:description "Schuldendiensthilfen an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_62 .
+
+hh:Gruppe_631 a hh:Gruppe ;
+    hh:nummer "631" ;
+    schema:description "Sonstige Zuweisungen an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_632 a hh:Gruppe ;
+    hh:nummer "632" ;
+    schema:description "Sonstige Zuweisungen an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_633 a hh:Gruppe ;
+    hh:nummer "633" ;
+    schema:description "Sonstige Zuweisungen an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_634 a hh:Gruppe ;
+    hh:nummer "634" ;
+    schema:description "Sonstige Zuweisungen an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_636 a hh:Gruppe ;
+    hh:nummer "636" ;
+    schema:description "Sonstige Zuweisungen an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_637 a hh:Gruppe ;
+    hh:nummer "637" ;
+    schema:description "Sonstige Zuweisungen an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_63 .
+
+hh:Gruppe_661 a hh:Gruppe ;
+    hh:nummer "661" ;
+    schema:description "Schuldendiensthilfen an öffentliche Unternehmen"@de ;
+    schema:isPartOf hh:Obergruppe_66 .
+
+hh:Gruppe_662 a hh:Gruppe ;
+    hh:nummer "662" ;
+    schema:description "Schuldendiensthilfen an private Unternehmen"@de ;
+    schema:isPartOf hh:Obergruppe_66 .
+
+hh:Gruppe_663 a hh:Gruppe ;
+    hh:nummer "663" ;
+    schema:description "Schuldendiensthilfen an Sonstige im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_66 .
+
+hh:Gruppe_664 a hh:Gruppe ;
+    hh:nummer "664" ;
+    schema:description "Schuldendiensthilfen an öffentliche Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_66 .
+
+hh:Gruppe_666 a hh:Gruppe ;
+    hh:nummer "666" ;
+    schema:description "Schuldendiensthilfen an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_66 .
+
+hh:Gruppe_671 a hh:Gruppe ;
+    hh:nummer "671" ;
+    schema:description "Erstattungen an Inland"@de ;
+    schema:isPartOf hh:Obergruppe_67 .
+
+hh:Gruppe_676 a hh:Gruppe ;
+    hh:nummer "676" ;
+    schema:description "Erstattungen an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_67 .
+
+hh:Gruppe_681 a hh:Gruppe ;
+    hh:nummer "681" ;
+    schema:description "Renten, Unterstützungen und sonstige Geldleistungen an natürliche Personen"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_682 a hh:Gruppe ;
+    hh:nummer "682" ;
+    schema:description "Zuschüsse für laufende Zwecke an öffentliche Unternehmen, soweit nicht Gruppe 661"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_683 a hh:Gruppe ;
+    hh:nummer "683" ;
+    schema:description "Zuschüsse für laufende Zwecke an private Unternehmen, soweit nicht Gruppe 662"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_684 a hh:Gruppe ;
+    hh:nummer "684" ;
+    schema:description "Zuschüsse für laufende Zwecke an soziale oder ähnliche Einrichtungen (ohne öffentliche Einrichtungen)"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_685 a hh:Gruppe ;
+    hh:nummer "685" ;
+    schema:description "Zuschüsse für laufende Zwecke an öffentliche Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_686 a hh:Gruppe ;
+    hh:nummer "686" ;
+    schema:description "Sonstige Zuschüsse für laufende Zwecke im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_687 a hh:Gruppe ;
+    hh:nummer "687" ;
+    schema:description "Zuschüsse für laufende Zwecke im Ausland, soweit nicht Gruppe 688 oder 689"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_688 a hh:Gruppe ;
+    hh:nummer "688" ;
+    schema:description "Abführung der Eigenmittel an die EU (nur Bund)"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_689 a hh:Gruppe ;
+    hh:nummer "689" ;
+    schema:description "Sonstige Ausgaben an die EU"@de ;
+    schema:isPartOf hh:Obergruppe_68 .
+
+hh:Gruppe_691 a hh:Gruppe ;
+    hh:nummer "691" ;
+    schema:description "Vermögensübertragungen an Bund, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_692 a hh:Gruppe ;
+    hh:nummer "692" ;
+    schema:description "Vermögensübertragungen an Länder, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_693 a hh:Gruppe ;
+    hh:nummer "693" ;
+    schema:description "Vermögensübertragungen an Gemeinden und Gemeindeverbände, soweit nicht Investitionszuweisungen"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_697 a hh:Gruppe ;
+    hh:nummer "697" ;
+    schema:description "Vermögensübertragungen an Unternehmen, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_698 a hh:Gruppe ;
+    hh:nummer "698" ;
+    schema:description "Vermögensübertragungen an Sonstige im Inland, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_699 a hh:Gruppe ;
+    hh:nummer "699" ;
+    schema:description "Vermögensübertragungen an Ausland, soweit nicht Investitionszuschüsse"@de ;
+    schema:isPartOf hh:Obergruppe_69 .
+
+hh:Gruppe_811 a hh:Gruppe ;
+    hh:nummer "811" ;
+    schema:description "Erwerb von Fahrzeugen"@de ;
+    schema:isPartOf hh:Obergruppe_81 .
+
+hh:Gruppe_812 a hh:Gruppe ;
+    hh:nummer "812" ;
+    schema:description "Erwerb von Geräten und sonstigen beweglichen Sachen"@de ;
+    schema:isPartOf hh:Obergruppe_81 .
+
+hh:Gruppe_813 a hh:Gruppe ;
+    hh:nummer "813" ;
+    schema:description "Erwerbsanteile im Rahmen von ÖPP-Projekten bei beweglichen Sachen"@de ;
+    schema:isPartOf hh:Obergruppe_81 .
+
+hh:Gruppe_821 a hh:Gruppe ;
+    hh:nummer "821" ;
+    schema:description "Erwerb von unbeweglichen Sachen, soweit nicht Gruppen 822 oder 823"@de ;
+    schema:isPartOf hh:Obergruppe_82 .
+
+hh:Gruppe_822 a hh:Gruppe ;
+    hh:nummer "822" ;
+    schema:description "Erwerb von unbebauten Grundstücken"@de ;
+    schema:isPartOf hh:Obergruppe_82 .
+
+hh:Gruppe_823 a hh:Gruppe ;
+    hh:nummer "823" ;
+    schema:description "Erwerbsanteile im Rahmen von ÖPP-Projekten sowie Erwerb von privat vorfinanzierten unbeweglichen Sachen"@de ;
+    schema:isPartOf hh:Obergruppe_82 .
+
+hh:Gruppe_831 a hh:Gruppe ;
+    hh:nummer "831" ;
+    schema:description "Erwerb von Beteiligungen und dgl. im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_83 .
+
+hh:Gruppe_836 a hh:Gruppe ;
+    hh:nummer "836" ;
+    schema:description "Erwerb von Beteiligungen und dgl. im Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_83 .
+
+hh:Gruppe_851 a hh:Gruppe ;
+    hh:nummer "851" ;
+    schema:description "Darlehen an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_852 a hh:Gruppe ;
+    hh:nummer "852" ;
+    schema:description "Darlehen an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_853 a hh:Gruppe ;
+    hh:nummer "853" ;
+    schema:description "Darlehen an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_854 a hh:Gruppe ;
+    hh:nummer "854" ;
+    schema:description "Darlehen an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_856 a hh:Gruppe ;
+    hh:nummer "856" ;
+    schema:description "Darlehen an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_857 a hh:Gruppe ;
+    hh:nummer "857" ;
+    schema:description "Darlehen an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_85 .
+
+hh:Gruppe_861 a hh:Gruppe ;
+    hh:nummer "861" ;
+    schema:description "Darlehen an öffentliche Unternehmen und Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_86 .
+
+hh:Gruppe_862 a hh:Gruppe ;
+    hh:nummer "862" ;
+    schema:description "Darlehen an private Unternehmen"@de ;
+    schema:isPartOf hh:Obergruppe_86 .
+
+hh:Gruppe_863 a hh:Gruppe ;
+    hh:nummer "863" ;
+    schema:description "Darlehen an Sonstige im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_86 .
+
+hh:Gruppe_866 a hh:Gruppe ;
+    hh:nummer "866" ;
+    schema:description "Darlehen an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_86 .
+
+hh:Gruppe_871 a hh:Gruppe ;
+    hh:nummer "871" ;
+    schema:description "Ausgaben für die Inanspruchnahme aus Gewährleistungen an das Inland"@de ;
+    schema:isPartOf hh:Obergruppe_87 .
+
+hh:Gruppe_876 a hh:Gruppe ;
+    hh:nummer "876" ;
+    schema:description "Ausgaben für die Inanspruchnahme aus Gewährleistungen an das Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_87 .
+
+hh:Gruppe_881 a hh:Gruppe ;
+    hh:nummer "881" ;
+    schema:description "Zuweisungen für Investitionen an Bund"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_882 a hh:Gruppe ;
+    hh:nummer "882" ;
+    schema:description "Zuweisungen für Investitionen an Länder"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_883 a hh:Gruppe ;
+    hh:nummer "883" ;
+    schema:description "Zuweisungen für Investitionen an Gemeinden und Gemeindeverbände"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_884 a hh:Gruppe ;
+    hh:nummer "884" ;
+    schema:description "Zuweisungen für Investitionen an Sondervermögen"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_886 a hh:Gruppe ;
+    hh:nummer "886" ;
+    schema:description "Zuweisungen für Investitionen an Sozialversicherungsträger sowie an die Bundesagentur für Arbeit"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_887 a hh:Gruppe ;
+    hh:nummer "887" ;
+    schema:description "Zuweisungen für Investitionen an Zweckverbände"@de ;
+    schema:isPartOf hh:Obergruppe_88 .
+
+hh:Gruppe_891 a hh:Gruppe ;
+    hh:nummer "891" ;
+    schema:description "Zuschüsse für Investitionen an öffentliche Unternehmen"@de ;
+    schema:isPartOf hh:Obergruppe_89 .
+
+hh:Gruppe_892 a hh:Gruppe ;
+    hh:nummer "892" ;
+    schema:description "Zuschüsse für Investitionen an private Unternehmen"@de ;
+    schema:isPartOf hh:Obergruppe_89 .
+
+hh:Gruppe_893 a hh:Gruppe ;
+    hh:nummer "893" ;
+    schema:description "Zuschüsse für Investitionen an Sonstige im Inland"@de ;
+    schema:isPartOf hh:Obergruppe_89 .
+
+hh:Gruppe_894 a hh:Gruppe ;
+    hh:nummer "894" ;
+    schema:description "Zuschüsse für Investitionen an öffentliche Einrichtungen"@de ;
+    schema:isPartOf hh:Obergruppe_89 .
+
+hh:Gruppe_896 a hh:Gruppe ;
+    hh:nummer "896" ;
+    schema:description "Zuschüsse für Investitionen an Ausland"@de ;
+    schema:isPartOf hh:Obergruppe_89 .
+
+hh:Gruppe_912 a hh:Gruppe ;
+    hh:nummer "912" ;
+    schema:description "Zuführungen an Betriebsmittelrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_91 .
+
+hh:Gruppe_915 a hh:Gruppe ;
+    hh:nummer "915" ;
+    schema:description "Zuführungen an Konjunkturausgleichsrücklage"@de ;
+    schema:isPartOf hh:Obergruppe_91 .
+
+hh:Gruppe_916 a hh:Gruppe ;
+    hh:nummer "916" ;
+    schema:description "Zuführungen an Fonds und Stöcke"@de ;
+    schema:isPartOf hh:Obergruppe_91 .
+
+hh:Gruppe_919 a hh:Gruppe ;
+    hh:nummer "919" ;
+    schema:description "Zuführungen an sonstige Rücklagen"@de ;
+    schema:isPartOf hh:Obergruppe_91 .
+
+hh:Gruppe_971 a hh:Gruppe ;
+    hh:nummer "971" ;
+    schema:description "Globale Mehrausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_97 .
+
+hh:Gruppe_972 a hh:Gruppe ;
+    hh:nummer "972" ;
+    schema:description "Globale Minderausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_97 .
+
+hh:Gruppe_981 a hh:Gruppe ;
+    hh:nummer "981" ;
+    schema:description "Verrechnungen zwischen Kapiteln"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Gruppe_982 a hh:Gruppe ;
+    hh:nummer "982" ;
+    schema:description "Durchlaufende Posten"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Gruppe_985 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_984 ;
+    hh:nummer "985" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Gruppe_986 a hh:Gruppe ;
+    owl:sameAs hh:Gruppe_984 ;
+    hh:nummer "986" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Gruppe_989 a hh:Gruppe ;
+    hh:nummer "989" ;
+    schema:description "Sonstige haushaltstechnische Verrechnungen"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Hauptgruppe_7 a hh:Hauptgruppe ;
+    hh:nummer "7" ;
+    schema:description "Baumaßnahmen"@de .
+
+hh:Ist a hh:ArtDerAngabe ;
+    schema:description "Die tatsächlich angefallenen oder realisierten Ausgaben oder Einnahmen während des Haushaltsjahres."@de ;
+    schema:name "Ist"@de .
+
+hh:Oberfunktion_27 a hh:Oberfunktion ;
+    hh:nummer "27" ;
+    schema:description "Kindertagesbetreuung nach dem SGB VIII"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_29 a hh:Oberfunktion ;
+    hh:nummer "29" ;
+    schema:description "Sonstige soziale Angelegenheiten"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_43 a hh:Oberfunktion ;
+    hh:nummer "43" ;
+    schema:description "Kommunale Gemeinschaftsdienste (ohne Straßenbeleuchtung, Abwasserentsorgung und Abfallwirtschaft)"@de ;
+    schema:isPartOf hh:Hauptfunktion_4 .
+
+hh:Oberfunktion_61 a hh:Oberfunktion ;
+    hh:nummer "61" ;
+    schema:description "Verwaltung für Energie- und Wasserwirtschaft, Gewerbe und Dienstleistungen"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_68 a hh:Oberfunktion ;
+    hh:nummer "68" ;
+    schema:description "Sonstiges im Bereich Gewerbe und Dienstleistungen"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_75 a hh:Oberfunktion ;
+    hh:nummer "75" ;
+    schema:description "Luftfahrt"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Oberfunktion_79 a hh:Oberfunktion ;
+    hh:nummer "79" ;
+    schema:description "Sonstiges Verkehrswesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Oberfunktion_82 a hh:Oberfunktion ;
+    hh:nummer "82" ;
+    schema:description "Steuern und Finanzzuweisungen"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_83 a hh:Oberfunktion ;
+    hh:nummer "83" ;
+    schema:description "Schulden"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_84 a hh:Oberfunktion ;
+    hh:nummer "84" ;
+    schema:description "Beihilfen, Unterstützungen u. Ä."@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_85 a hh:Oberfunktion ;
+    hh:nummer "85" ;
+    schema:description "Rücklagen"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_86 a hh:Oberfunktion ;
+    hh:nummer "86" ;
+    schema:description "Sonstiges"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_87 a hh:Oberfunktion ;
+    hh:nummer "87" ;
+    schema:description "Abwicklung der Vorjahre"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_88 a hh:Oberfunktion ;
+    hh:nummer "88" ;
+    schema:description "Globalposten"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Oberfunktion_89 a hh:Oberfunktion ;
+    hh:nummer "89" ;
+    schema:description "Haushaltstechnische Verrechnungen"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Obergruppe_36 a hh:Obergruppe ;
+    hh:nummer "36" ;
+    schema:description "Einnahmen aus Überschüssen der Vorjahre"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_96 a hh:Obergruppe ;
+    hh:nummer "96" ;
+    schema:description "Ausgaben zur Deckung von Fehlbeträgen aus Vorjahren"@de ;
+    schema:isPartOf hh:Hauptgruppe_9 .
+
+hh:Soll a hh:ArtDerAngabe ;
+    schema:description "Die festgelegten Ziele oder Budgetvorgaben, die während des Haushaltsjahres erreicht werden sollen."@de ;
+    schema:name "Soll"@de .
+
+hh:betrag a rdf:Property ;
+    rdfs:range xsd:int ;
+    ns5:P38 wd:Q4916 ;
+    schema:description "Monetärer Betrag, der einem Haushaltsdatum zugeordnet ist."@de ;
+    schema:name "Betrag"@de .
+
+hh:finanzplanung a rdf:Property ;
+    rdfs:range hh:ArtDerAngabe ;
+    schema:description "Systematische Festlegung und Überwachung der geplanten Einnahmen und Ausgaben eines öffentlichen Haushalts für einen bestimmten Zeitraum."@de ;
+    schema:name "Finanzplanung"@de .
+
+hh:nummer a rdf:Property ;
+    rdfs:range xsd:string ;
+    schema:description "Die Identifikationsnummer einer Haushaltskategorie (z.B. eines Titels order einer Funktion)."@de ;
+    schema:name "Nummer"@de .
+
+hh:titel a rdf:Property ;
+    rdfs:range hh:Titel ;
+    schema:name "Titel"@de .
+
+hh:vonBundesland a rdf:Property ;
+    rdfs:range wd:Q1221156 ;
+    schema:description "Diese Eigenschaft verknüpft einen Einzelplan mit dem Bundesland, dem er zugeordnet ist."@de ;
+    schema:name "von Bundesland"@de .
+
+hh:Gruppe_384 a hh:Gruppe ;
+    hh:nummer "384" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_38 .
+
+hh:Gruppe_984 a hh:Gruppe ;
+    hh:nummer "984" ;
+    schema:description "Interne Zahlungsströme (nur Berlin und Bremen)"@de ;
+    schema:isPartOf hh:Obergruppe_98 .
+
+hh:Oberfunktion_19 a hh:Oberfunktion ;
+    owl:sameAs hh:Oberfunktion_18 ;
+    hh:nummer "19" ;
+    schema:description "Kultur und Religion"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_21 a hh:Oberfunktion ;
+    hh:nummer "21" ;
+    schema:description "Verwaltung für soziale Angelegenheiten"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_32 a hh:Oberfunktion ;
+    hh:nummer "32" ;
+    schema:description "Sport und Erholung"@de ;
+    schema:isPartOf hh:Hauptfunktion_3 .
+
+hh:Oberfunktion_33 a hh:Oberfunktion ;
+    hh:nummer "33" ;
+    schema:description "Umwelt- und Naturschutz"@de ;
+    schema:isPartOf hh:Hauptfunktion_3 .
+
+hh:Oberfunktion_34 a hh:Oberfunktion ;
+    hh:nummer "34" ;
+    schema:description "Nukleare Sicherheit und Strahlenschutz"@de ;
+    schema:isPartOf hh:Hauptfunktion_3 .
+
+hh:Oberfunktion_51 a hh:Oberfunktion ;
+    hh:nummer "51" ;
+    schema:description "Verwaltung für Ernährung, Landwirtschaft und Forsten (ohne Betriebsverwaltung)"@de ;
+    schema:isPartOf hh:Hauptfunktion_5 .
+
+hh:Oberfunktion_53 a hh:Oberfunktion ;
+    hh:nummer "53" ;
+    schema:description "Forstwirtschaft und Jagd, Fischerei"@de ;
+    schema:isPartOf hh:Hauptfunktion_5 .
+
+hh:Oberfunktion_65 a hh:Oberfunktion ;
+    hh:nummer "65" ;
+    schema:description "Handel und Tourismus"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_66 a hh:Oberfunktion ;
+    hh:nummer "66" ;
+    schema:description "Geld- und Versicherungswesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_69 a hh:Oberfunktion ;
+    hh:nummer "69" ;
+    schema:description "Regionale Fördermaßnahmen"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_73 a hh:Oberfunktion ;
+    hh:nummer "73" ;
+    schema:description "Wasserstraßen und Häfen, Förderung der Schifffahrt"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Oberfunktion_74 a hh:Oberfunktion ;
+    hh:nummer "74" ;
+    schema:description "Eisenbahnen und öffentlicher Personennahverkehr"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Oberfunktion_77 a hh:Oberfunktion ;
+    hh:nummer "77" ;
+    schema:description "Nachrichtenwesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Obergruppe_14 a hh:Obergruppe ;
+    hh:nummer "14" ;
+    schema:description "Einnahmen aus der Inanspruchnahme von Gewährleistungen"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_26 a hh:Obergruppe ;
+    hh:nummer "26" ;
+    schema:description "Schuldendiensthilfen und Erstattungen von Verwaltungsausgaben aus sonstigen Bereichen"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_27 a hh:Obergruppe ;
+    hh:nummer "27" ;
+    schema:description "Zuschüsse von der EU"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_37 a hh:Obergruppe ;
+    hh:nummer "37" ;
+    schema:description "Globale Mehr- und Mindereinnahmen"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_41 a hh:Obergruppe ;
+    hh:nummer "41" ;
+    schema:description "Aufwendungen für Abgeordnete und ehrenamtlich Tätige"@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Obergruppe_46 a hh:Obergruppe ;
+    hh:nummer "46" ;
+    schema:description "Globale Mehr- und Minderausgaben für Personalausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Obergruppe_67 a hh:Obergruppe ;
+    hh:nummer "67" ;
+    schema:description "Erstattungen an sonstige Bereiche"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_83 a hh:Obergruppe ;
+    hh:nummer "83" ;
+    schema:description "Erwerb von Beteiligungen und dgl."@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_87 a hh:Obergruppe ;
+    hh:nummer "87" ;
+    schema:description "Inanspruchnahme aus Gewährleistungen"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_97 a hh:Obergruppe ;
+    hh:nummer "97" ;
+    schema:description "Globale Mehr- und Minderausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_9 .
+
+hh:Hauptfunktion_4 a hh:Hauptfunktion ;
+    hh:nummer "4" ;
+    schema:description "Wohnungswesen, Städtebau, Raumordnung und kommunale Gemeinschaftsdienste"@de .
+
+hh:Hauptfunktion_5 a hh:Hauptfunktion ;
+    hh:nummer "5" ;
+    schema:description "Ernährung, Landwirtschaft und Forsten"@de .
+
+hh:Oberfunktion_06 a hh:Oberfunktion ;
+    hh:nummer "06" ;
+    schema:description "Finanzverwaltung"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_41 a hh:Oberfunktion ;
+    hh:nummer "41" ;
+    schema:description "Wohnungswesen, Wohnungsbauprämie"@de ;
+    schema:isPartOf hh:Hauptfunktion_4 .
+
+hh:Oberfunktion_42 a hh:Oberfunktion ;
+    hh:nummer "42" ;
+    schema:description "Geoinformation, Raumordnung und Landesplanung, Städtebauförderung"@de ;
+    schema:isPartOf hh:Hauptfunktion_4 .
+
+hh:Oberfunktion_52 a hh:Oberfunktion ;
+    hh:nummer "52" ;
+    schema:description "Landwirtschaft und Ernährung"@de ;
+    schema:isPartOf hh:Hauptfunktion_5 .
+
+hh:Oberfunktion_62 a hh:Oberfunktion ;
+    hh:nummer "62" ;
+    schema:description "Wasserwirtschaft, Hochwasser- und Küstenschutz"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Oberfunktion_71 a hh:Oberfunktion ;
+    hh:nummer "71" ;
+    schema:description "Verwaltung des Verkehrs- und Nachrichtenwesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Oberfunktion_81 a hh:Oberfunktion ;
+    hh:nummer "81" ;
+    schema:description "Grund- und Kapitalvermögen, Sondervermögen"@de ;
+    schema:isPartOf hh:Hauptfunktion_8 .
+
+hh:Obergruppe_04 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_03 ;
+    hh:nummer "04" ;
+    schema:description "Bundessteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_06 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_05 ;
+    hh:nummer "06" ;
+    schema:description "Landessteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_08 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_07 ;
+    hh:nummer "08" ;
+    schema:description "Gemeindesteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_09 a hh:Obergruppe ;
+    hh:nummer "09" ;
+    schema:description "Steuerähnliche Abgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_11 a hh:Obergruppe ;
+    hh:nummer "11" ;
+    schema:description "Verwaltungseinnahmen"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_16 a hh:Obergruppe ;
+    hh:nummer "16" ;
+    schema:description "Zinseinnahmen aus sonstigen Bereichen"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_18 a hh:Obergruppe ;
+    hh:nummer "18" ;
+    schema:description "Darlehensrückflüsse aus sonstigen Bereichen"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_44 a hh:Obergruppe ;
+    hh:nummer "44" ;
+    schema:description "Beihilfen, Unterstützungen, Fürsorgeleistungen und dgl."@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Obergruppe_45 a hh:Obergruppe ;
+    hh:nummer "45" ;
+    schema:description "Sonstige personalbezogene Ausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Obergruppe_81 a hh:Obergruppe ;
+    hh:nummer "81" ;
+    schema:description "Erwerb von beweglichen Sachen"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_82 a hh:Obergruppe ;
+    hh:nummer "82" ;
+    schema:description "Erwerb von unbeweglichen Sachen"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Hauptfunktion_3 a hh:Hauptfunktion ;
+    hh:nummer "3" ;
+    schema:description "Gesundheit, Umwelt, Sport und Erholung"@de .
+
+hh:Hauptgruppe_9 a hh:Hauptgruppe ;
+    hh:nummer "9" ;
+    schema:description "Besondere Finanzierungsausgaben"@de .
+
+hh:Oberfunktion_05 a hh:Oberfunktion ;
+    hh:nummer "05" ;
+    schema:description "Rechtsschutz"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_14 a hh:Oberfunktion ;
+    hh:nummer "14" ;
+    schema:description "Förderung für Schülerinnen und Schüler, Studierende, Weiterbildungsteilnehmende und dgl."@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_15 a hh:Oberfunktion ;
+    hh:nummer "15" ;
+    schema:description "Sonstiges Bildungswesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_25 a hh:Oberfunktion ;
+    hh:nummer "25" ;
+    schema:description "Arbeitsmarktpolitik"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_31 a hh:Oberfunktion ;
+    hh:nummer "31" ;
+    schema:description "Gesundheitswesen"@de ;
+    schema:isPartOf hh:Hauptfunktion_3 .
+
+hh:Obergruppe_02 a hh:Obergruppe ;
+    hh:nummer "02" ;
+    schema:description "EU-Eigenmittel (nur Bund)"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_28 a hh:Obergruppe ;
+    hh:nummer "28" ;
+    schema:description "Sonstige Zuschüsse aus sonstigen Bereichen"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_32 a hh:Obergruppe ;
+    hh:nummer "32" ;
+    schema:description "Schuldenaufnahmen am Kreditmarkt"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_34 a hh:Obergruppe ;
+    hh:nummer "34" ;
+    schema:description "Beiträge und sonstige Zuschüsse für Investitionen"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_35 a hh:Obergruppe ;
+    hh:nummer "35" ;
+    schema:description "Entnahmen aus Rücklagen, Fonds und Stöcken"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_86 a hh:Obergruppe ;
+    hh:nummer "86" ;
+    schema:description "Darlehen an sonstige Bereiche"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_91 a hh:Obergruppe ;
+    hh:nummer "91" ;
+    schema:description "Zuführungen an Rücklagen, Fonds und Stöcke"@de ;
+    schema:isPartOf hh:Hauptgruppe_9 .
+
+hh:Oberfunktion_02 a hh:Oberfunktion ;
+    hh:nummer "02" ;
+    schema:description "Auswärtige Angelegenheiten"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_12 a hh:Oberfunktion ;
+    owl:sameAs hh:Oberfunktion_11 ;
+    hh:nummer "12" ;
+    schema:description "Allgemeinbildende und berufliche Schulen"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_16 a hh:Oberfunktion ;
+    hh:nummer "16" ;
+    schema:description "Wissenschaft, Forschung, Entwicklung außerhalb der Hochschulen (ohne Wehrforschung und wehrtechnische Entwicklung, siehe Funktion 036)"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_24 a hh:Oberfunktion ;
+    hh:nummer "24" ;
+    schema:description "Soziale Leistungen für Folgen von Krieg und politischen Ereignissen [bis 2023], Leistungen nach dem Sozialen Entschädigungsrecht und für Folgen von politischen Ereignissen [ab 2024]"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_26 a hh:Oberfunktion ;
+    hh:nummer "26" ;
+    schema:description "Kinder- und Jugendhilfe nach dem SGB VIII (ohne Kindertagesbetreuung)"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_63 a hh:Oberfunktion ;
+    hh:nummer "63" ;
+    schema:description "Bergbau, verarbeitendes Gewerbe und Baugewerbe"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Obergruppe_13 a hh:Obergruppe ;
+    hh:nummer "13" ;
+    schema:description "Einnahmen aus der Veräußerung von Gegenständen und Beteiligungen, aus Kapitalrückzahlungen und dgl."@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_31 a hh:Obergruppe ;
+    hh:nummer "31" ;
+    schema:description "Schuldenaufnahmen bei Gebietskörperschaften, Sondervermögen und gebietskörperschaftlichen Zusammenschlüssen, soweit zur Aufgabenfinanzierung"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_55 a hh:Obergruppe ;
+    hh:nummer "55" ;
+    schema:description "Militärische Beschaffungen, Materialerhaltung, Wehrforschung, wehrtechnische und sonstige militärische Entwicklung und Erprobung sowie militärische Anlagen (nur Bund)"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_56 a hh:Obergruppe ;
+    hh:nummer "56" ;
+    schema:description "Zinsausgaben an Gebietskörperschaften, Sondervermögen und gebietskörperschaftliche Zusammenschlüsse"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_57 a hh:Obergruppe ;
+    hh:nummer "57" ;
+    schema:description "Zinsausgaben an Kreditmarkt"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_58 a hh:Obergruppe ;
+    hh:nummer "58" ;
+    schema:description "Tilgungsausgaben an Gebietskörperschaften, Sondervermögen und gebietskörperschaftliche Zusammenschlüsse"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_59 a hh:Obergruppe ;
+    hh:nummer "59" ;
+    schema:description "Tilgungsausgaben an Kreditmarkt"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_66 a hh:Obergruppe ;
+    hh:nummer "66" ;
+    schema:description "Schuldendiensthilfen an sonstige Bereiche"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_89 a hh:Obergruppe ;
+    hh:nummer "89" ;
+    schema:description "Zuschüsse für Investitionen an sonstige Bereiche"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Gruppe_523 a hh:Gruppe ;
+    hh:nummer "523" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_52 .
+
+hh:Gruppe_540 a hh:Gruppe ;
+    hh:nummer "540" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_54 .
+
+hh:Hauptfunktion_0 a hh:Hauptfunktion ;
+    hh:nummer "0" ;
+    schema:description "Allgemeine Dienste"@de .
+
+hh:Hauptgruppe_4 a hh:Hauptgruppe ;
+    hh:nummer "4" ;
+    schema:description "Personalausgaben"@de .
+
+hh:Oberfunktion_13 a hh:Oberfunktion ;
+    hh:nummer "13" ;
+    schema:description "Hochschulen"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_23 a hh:Oberfunktion ;
+    hh:nummer "23" ;
+    schema:description "Familienhilfe, Wohlfahrtspflege u. Ä. (ohne Leistungen nach dem SGB VIII)"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Obergruppe_15 a hh:Obergruppe ;
+    hh:nummer "15" ;
+    schema:description "Zinseinnahmen aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_17 a hh:Obergruppe ;
+    hh:nummer "17" ;
+    schema:description "Darlehensrückflüsse aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_21 a hh:Obergruppe ;
+    hh:nummer "21" ;
+    schema:description "Allgemeine (nicht zweckgebundene) Zuweisungen aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_22 a hh:Obergruppe ;
+    hh:nummer "22" ;
+    schema:description "Schuldendiensthilfen aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_29 a hh:Obergruppe ;
+    hh:nummer "29" ;
+    schema:description "Vermögensübertragungen, soweit nicht für Investitionen"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_33 a hh:Obergruppe ;
+    hh:nummer "33" ;
+    schema:description "Zuweisungen für Investitionen aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_38 a hh:Obergruppe ;
+    hh:nummer "38" ;
+    schema:description "Haushaltstechnische Verrechnungen"@de ;
+    schema:isPartOf hh:Hauptgruppe_3 .
+
+hh:Obergruppe_61 a hh:Obergruppe ;
+    hh:nummer "61" ;
+    schema:description "Allgemeine (nicht zweckgebundene) Zuweisungen an öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_62 a hh:Obergruppe ;
+    hh:nummer "62" ;
+    schema:description "Schuldendiensthilfen an öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_63 a hh:Obergruppe ;
+    hh:nummer "63" ;
+    schema:description "Sonstige (zweckgebundene) Zuweisungen an öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_69 a hh:Obergruppe ;
+    hh:nummer "69" ;
+    schema:description "Vermögensübertragungen, soweit nicht für Investitionen"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_85 a hh:Obergruppe ;
+    hh:nummer "85" ;
+    schema:description "Darlehen an öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_88 a hh:Obergruppe ;
+    hh:nummer "88" ;
+    schema:description "Zuweisungen für Investitionen an öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_8 .
+
+hh:Obergruppe_98 a hh:Obergruppe ;
+    hh:nummer "98" ;
+    schema:description "Haushaltstechnische Verrechnungen"@de ;
+    schema:isPartOf hh:Hauptgruppe_9 .
+
+hh:Hauptfunktion_7 a hh:Hauptfunktion ;
+    hh:nummer "7" ;
+    schema:description "Verkehrs- und Nachrichtenwesen"@de .
+
+hh:Hauptgruppe_2 a hh:Hauptgruppe ;
+    hh:nummer "2" ;
+    schema:description "Einnahmen aus Zuweisungen und Zuschüssen mit Ausnahme für Investitionen"@de .
+
+hh:Hauptgruppe_6 a hh:Hauptgruppe ;
+    hh:nummer "6" ;
+    schema:description "Ausgaben für Zuweisungen und Zuschüsse mit Ausnahme für Investitionen"@de .
+
+hh:Oberfunktion_03 a hh:Oberfunktion ;
+    hh:nummer "03" ;
+    schema:description "Verteidigung (nur Bund)"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_04 a hh:Oberfunktion ;
+    hh:nummer "04" ;
+    schema:description "Öffentliche Sicherheit und Ordnung"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_11 a hh:Oberfunktion ;
+    hh:nummer "11" ;
+    schema:description "Allgemeinbildende und berufliche Schulen"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Oberfunktion_28 a hh:Oberfunktion ;
+    hh:nummer "28" ;
+    schema:description "Soziale Leistungen nach dem SGB XII und dem Asylbewerberleistungsgesetz, Eingliederungshilfe für Menschen mit Behinderungen nach dem SGB IX"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_72 a hh:Oberfunktion ;
+    hh:nummer "72" ;
+    schema:description "Straßen"@de ;
+    schema:isPartOf hh:Hauptfunktion_7 .
+
+hh:Obergruppe_12 a hh:Obergruppe ;
+    hh:nummer "12" ;
+    schema:description "Einnahmen aus wirtschaftlicher Tätigkeit und aus Vermögen (ohne Zinsen)"@de ;
+    schema:isPartOf hh:Hauptgruppe_1 .
+
+hh:Obergruppe_23 a hh:Obergruppe ;
+    hh:nummer "23" ;
+    schema:description "Sonstige (zweckgebundene) Zuweisungen aus dem öffentlichen Bereich"@de ;
+    schema:isPartOf hh:Hauptgruppe_2 .
+
+hh:Obergruppe_42 a hh:Obergruppe ;
+    hh:nummer "42" ;
+    schema:description "Bezüge, Entgelte und Nebenleistungen"@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Obergruppe_43 a hh:Obergruppe ;
+    hh:nummer "43" ;
+    schema:description "Versorgungsbezüge und dgl."@de ;
+    schema:isPartOf hh:Hauptgruppe_4 .
+
+hh:Hauptfunktion_1 a hh:Hauptfunktion ;
+    hh:nummer "1" ;
+    schema:description "Bildungswesen, Wissenschaft, Forschung, kulturelle Angelegenheiten"@de .
+
+hh:Hauptfunktion_6 a hh:Hauptfunktion ;
+    hh:nummer "6" ;
+    schema:description "Energie- und Wasserwirtschaft, Gewerbe, Dienstleistungen"@de .
+
+hh:Hauptgruppe_1 a hh:Hauptgruppe ;
+    hh:nummer "1" ;
+    schema:description "Verwaltungseinnahmen, Einnahmen aus Schuldendienst und dgl."@de .
+
+hh:Hauptgruppe_3 a hh:Hauptgruppe ;
+    hh:nummer "3" ;
+    schema:description "Einnahmen aus Schuldenaufnahmen, aus Zuweisungen und Zuschüssen für Investitionen, besondere Finanzierungseinnahmen"@de .
+
+hh:Hauptgruppe_8 a hh:Hauptgruppe ;
+    hh:nummer "8" ;
+    schema:description "Sonstige Ausgaben für Investitionen und Investitionsförderungsmaßnahmen"@de .
+
+hh:Oberfunktion_01 a hh:Oberfunktion ;
+    hh:nummer "01" ;
+    schema:description "Politische Führung und zentrale Verwaltung"@de ;
+    schema:isPartOf hh:Hauptfunktion_0 .
+
+hh:Oberfunktion_22 a hh:Oberfunktion ;
+    hh:nummer "22" ;
+    schema:description "Sozialversicherung einschl. Arbeitslosenversicherung"@de ;
+    schema:isPartOf hh:Hauptfunktion_2 .
+
+hh:Oberfunktion_64 a hh:Oberfunktion ;
+    hh:nummer "64" ;
+    schema:description "Energie- und Wasserversorgung, Entsorgung"@de ;
+    schema:isPartOf hh:Hauptfunktion_6 .
+
+hh:Obergruppe_01 a hh:Obergruppe ;
+    hh:nummer "01" ;
+    schema:description "Gemeinschaftsteuern und Gewerbesteuerumlage"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_52 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_51 ;
+    hh:nummer "52" ;
+    schema:description "Sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Gruppe_530 a hh:Gruppe ;
+    hh:nummer "530" ;
+    schema:description "Sonstige sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Obergruppe_53 .
+
+hh:Hauptfunktion_2 a hh:Hauptfunktion ;
+    hh:nummer "2" ;
+    schema:description "Soziale Sicherung, Familie und Jugend, Arbeitsmarktpolitik"@de .
+
+hh:Hauptfunktion_8 a hh:Hauptfunktion ;
+    hh:nummer "8" ;
+    schema:description "Finanzwirtschaft"@de .
+
+hh:Hauptgruppe_0 a hh:Hauptgruppe ;
+    hh:nummer "0" ;
+    schema:description "Einnahmen aus Steuern und steuerähnlichen Abgaben sowie EU-Eigenmittel"@de .
+
+hh:Hauptgruppe_5 a hh:Hauptgruppe ;
+    hh:nummer "5" ;
+    schema:description "Sächliche Verwaltungsausgaben, militärische Beschaffungen usw., Ausgaben für den Schuldendienst"@de .
+
+hh:Oberfunktion_18 a hh:Oberfunktion ;
+    hh:nummer "18" ;
+    schema:description "Kultur und Religion"@de ;
+    schema:isPartOf hh:Hauptfunktion_1 .
+
+hh:Obergruppe_05 a hh:Obergruppe ;
+    hh:nummer "05" ;
+    schema:description "Landessteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_51 a hh:Obergruppe ;
+    hh:nummer "51" ;
+    schema:description "Sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_68 a hh:Obergruppe ;
+    hh:nummer "68" ;
+    schema:description "Sonstige Zuschüsse für laufende Zwecke an sonstige Bereiche"@de ;
+    schema:isPartOf hh:Hauptgruppe_6 .
+
+hh:Obergruppe_03 a hh:Obergruppe ;
+    hh:nummer "03" ;
+    schema:description "Bundessteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_07 a hh:Obergruppe ;
+    hh:nummer "07" ;
+    schema:description "Gemeindesteuern"@de ;
+    schema:isPartOf hh:Hauptgruppe_0 .
+
+hh:Obergruppe_53 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_51 ;
+    hh:nummer "53" ;
+    schema:description "Sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
+hh:Obergruppe_54 a hh:Obergruppe ;
+    owl:sameAs hh:Obergruppe_51 ;
+    hh:nummer "54" ;
+    schema:description "Sächliche Verwaltungsausgaben"@de ;
+    schema:isPartOf hh:Hauptgruppe_5 .
+
