@@ -3,13 +3,13 @@
 This repository contains a vocabulary for budget data at the level of German federal states, e.g. Einzelbereiche, Gruppe or Funktionen. 
 It was created in collaboration between the State Chancellery of Schleswig-Holstein (Staatskanzlei des Landes Schleswig-Holstein) and the Senate Department for Finance (Senatsverwaltung für Finanzen) in Berlin, and is currently hosted and maintained by the Open Knowledge Foundation Germany.
 
-**[Click here to view the vocabulary](https://berlin.github.io/lod-budget/)**<br><br>
+**[Click here to view the vocabulary](https://okfde.github.io/lod-budget-vocab/)**<br><br>
 **[The Berlin data for 2022-2025 can be viewed here](https://berlin.github.io/lod-budget/)**
 <br><br>
-We used [jinja2rdf](https://github.com/berlinonline/jinjardf) to create this site.
+We used [jinjardf](https://github.com/berlinonline/jinjardf) to create this site.
 
 ## Future Maintenance
-For any ideas for improvement or comments you can open an issue here or reach us via the [OKF-project page](https://okfn.de/projekte/opendata/).<br>
+If you have any suggestions or comments, you can open an issue here or contact us via the [OKF-project page](https://okfn.de/projekte/opendata/).<br>
 We would also like to see the maintenance of the vocabulary taken over by a governmental actor in the future.
 
 ## License
