@@ -18,12 +18,12 @@
 
 hh:
     a void:Dataset ;
-    dct:title "Vokabular für Haushaltsdaten als LOD"@de ;
-    dct:title "Vocabulary for budget data as LOD"@en ;
-    dct:description "Vokabular für Haushaltsdatan auf Landesebene als Linked Data"@de ;
+    dct:title "LOD-Vokabular Landeshaushaltsdaten "@de ;
+    dct:title "LOD vocabulary for German state level budget data"@en ;
+    dct:description "Vokabular für Haushaltsdaten auf Landesebene als Linked Data"@de ;
     dct:description "Vocabulary for budget data at the level of the federal states as linked data"@en ;
     dct:created "2025-04-11"^^xsd:date ;
-    dct:modified "2025-05-07"^^xsd:date ;
+    dct:modified "2025-05-13"^^xsd:date ;
     # dct:publisher "Open Knowledge Foundation Deutschland e.V." ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/okfde/lod-budget-vocab> ;
