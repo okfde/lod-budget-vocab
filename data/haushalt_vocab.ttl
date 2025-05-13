@@ -18,7 +18,7 @@ hh:Ausgabetitel a rdfs:Class ;
     schema:name "Ausgabetitel"@de .
 
 hh:Bereich a rdfs:Class ;
-    schema:description "Unterscheidung nach Berliner Landes- und Bezirksebene. Die Ziffer 30 steht für die Landesebene. Darunter fällt die Berliner Hauptverwaltung sowie die fünf weisungsfreien Verfassungsorgane (Abgeordnetenhaus, Verfassungsgerichtshof, Rechnungshof, Beauftragte/Beauftragter für Datenschutz und Informationsfreiheit, Bürger- und Polizeibeauftragte/Bürger- und Polizeibeauftragter des Landes Berlin). Die Ziffern 31 bis 42 umfassen die 12 Berliner Bezirksämter mit ihren Bezirksverwaltungen."@de ;
+    schema:description "Im landeshaushalterischen Kontext bezeichnet der Begriff Bereich eine organisatorische Ebene oder Einheit innerhalb der Landesverwaltung, die in der Haushaltsstruktur als übergeordnete Gliederungsebene dient. Sie differenziert insbesondere zwischen der zentralen Landesebene und nachgeordneten Verwaltungseinheiten, denen eigenständige Haushaltsansätze zugeordnet werden können."@de ;
     schema:name "Bereich"@de .
 
 hh:Einnahmetitel a rdfs:Class ;
@@ -81,7 +81,7 @@ hh:Obergruppe a rdfs:Class ;
     schema:name "Obergruppe"@de .
 
 hh:Titel a rdfs:Class ;
-    schema:description "Unterste Gliederungsebene des Haushaltsplans. Die Eindeutigkeit eines Titels ist jedoch nur durch Verknüpfung mit Haushaltsjahr, Kapitel und - im Falle von Berlin - dem Bezirk gegeben."@de ;
+    schema:description "Unterste Gliederungsebene des Haushaltsplans. Die Eindeutigkeit eines Titels ist jedoch nur durch Verknüpfung mit Haushaltsjahr, Kapitel und - im Falle von Berlin - dem Bereich gegeben."@de ;
     schema:name "Haushaltstitel"@de,
         "Titel"@de .
 
