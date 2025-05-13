@@ -34,5 +34,11 @@ hh:
 
     # void:vocabulary sdmxdim: , cube: , meta: , qudt: ; 
     void:dataDump <https://raw.githubusercontent.com/okfde/lod-budget-vocab/refs/heads/main/data/haushalt_vocab.ttl> ;
-    
+.
+
+hh:impressum
+    a lodsg:ImprintPage ;
+    schema:name "Impressum"@de ;
+    schema:name "Imprint"@en ;
+    schema:about hh: ;
 .
