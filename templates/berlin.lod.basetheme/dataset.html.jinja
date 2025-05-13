@@ -33,7 +33,7 @@
   {% set date_modified = node | rdf_property_any(DCT.modified) %}
   {% if date_modified %}
     <tr>
-      <td>zuerst geändert am:</td>
+      <td>zuletzt geändert am:</td>
       <td>{{ date_modified }}</td>
     </tr>
   {% endif %}
