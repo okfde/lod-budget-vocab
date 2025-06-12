@@ -1,0 +1,111 @@
+{% extends "berlin.lod.basetheme/base.html.jinja" %}
+
+{% set type_icon = 'file-earmark-text' %}
+
+{% block content %}
+<div id="imprint_verantw" class="imprint-block">
+    <h3>{{ title }}</h3>
+    {% set org = node | rdf_property_any(SCHEMA.about/DCT.publisher) %}
+    {% if org %}
+        {% set address = org | rdf_property_any(SCHEMA.address) %}
+        {% set responsible_org_query = '''
+            SELECT ?name ?street ?postalCode ?locality ?country ?email ?telephone ?ustid ?vereinsId ?courtName ?projectName ?projectUrl
+            WHERE {
+                # the imprint is about something (the dataset), which has a publisher
+                ?resource_uri schema:about/dct:publisher ?org .
+                
+                ?org
+                    schema:name ?name ;
+                    schema:address ?address ;
+                    schema:email ?email ;
+                    schema:telephone ?telephone ;
+                    schema:taxID ?ustid ;
+                    schema:identifier ?registernr ;
+                .
+
+                ?address
+                    schema:streetAddress ?street ;
+                    schema:postalCode ?postalCode ;
+                    schema:addressLocality ?locality ;
+                    schema:addressCountry ?country ;
+                .
+
+                ?registernr
+                    schema:propertyID ?idType ;
+                    schema:value ?vereinsId ;
+                    lodsg:registerGericht/schema:name ?courtName ;
+                .
+
+                ?resource_uri schema:about/dct:references ?project .
+                ?project
+                    schema:name ?projectName ;
+                    schema:url ?projectUrl ;
+                .
+
+                FILTER(lang(?projectName) = "de")
+            }
+            '''
+        %}
+        <address>
+            {{ org | title_any(languages=['de'], default=org) }}<br/>
+            {% if address %}
+                {{ address | rdf_property_any(SCHEMA.streetAddress) }}<br/>
+                {{ address | rdf_property_any(SCHEMA.addressCountry) }}-{{ address | rdf_property_any(SCHEMA.postalCode) }} {{ address | rdf_property_any(SCHEMA.addressLocality) }}<br/>
+            {% else %}
+                No address found in data
+            {% endif %}
+        </address>
+        <p>
+            {% set project = node | rdf_property_any(SCHEMA.about/DCT.references) %}
+            Projekt:
+            {% if project %}
+                <a href="{{ project | rdf_property_any(SCHEMA.url) }}">{{ project | title_any(languages=['de'], default=project) }}</a>
+            {% else %}
+                No project found in data
+            {% endif %}
+            <br>
+            {% set email = org | rdf_property_any(SCHEMA.email) %}
+            E-Mail:
+            {% if email %}
+                <a href="{{ email }}">{{ email | replace("mailto:", "") }}</a>
+            {% else %}
+                no email found in data
+            {% endif %}
+            <br>
+            Tel.: {{ org | rdf_property_any(SCHEMA.telephone) }}<br><br>
+
+            Umsatzsteuernummer: {{ org | rdf_property_any(SCHEMA.taxID) }}<br>
+            {% set identifiers = org | rdf_property(SCHEMA.identifier) %}
+            {% for identifier in identifiers %}
+                {% if identifier | rdf_property_any(SCHEMA.propertyID) | to_python == "Vereinsregisternummer" %}
+                    Vereinsregister-Nr.: {{ identifier | rdf_property_any(SCHEMA.value) }}<br>
+                    Registergericht: {{ identifier | rdf_property_any(LODSG.registerGericht/SCHEMA.name) }}<br>
+                {% endif %}
+            {% endfor %}
+            Vertretungsberechtigter Vorstand:
+            {% set board_query = '''
+                SELECT ?name ?family_name
+                WHERE {
+                    ?resource_uri lodsg:boardMember ?boardMember .
+                    ?boardMember 
+                        schema:name ?name ;
+                        schema:familyName ?familyName ;
+                    .
+                }
+                ORDER BY ?familyName
+                '''
+            %}
+            {% set board_members = org | sparql_query(board_query) %}
+            {%- for member in board_members -%}
+                {{ member['name'] }}{%- if not loop.last %}, {% endif %}
+            {%- else -%}
+                no board members found in data
+            {%- endfor -%}.<br>
+            Datenschutzerklärung: <a href="https://okfn.de/impressum/">https://okfn.de/impressum/</a><br>
+        </p>
+    {% else %}
+        <p>No responsible organization found in data</p>
+    {% endif %}
+
+</div>
+{% endblock content %}

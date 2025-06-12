@@ -24,13 +24,14 @@ hh:
     dct:description "Vocabulary for budget data at the level of the federal states as linked data"@en ;
     dct:created "2025-04-11"^^xsd:date ;
     dct:modified "2025-05-13"^^xsd:date ;
-    # dct:publisher "Open Knowledge Foundation Deutschland e.V." ;
+    dct:publisher hh:okfn ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/okfde/lod-budget-vocab> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
     void:exampleResource hh:Bereich ;
     void:exampleResource hh:Einzelplan ;
     void:exampleResource hh:Funktion_046 ;
+    dct:references hh:openDataProject ;
 
     # void:vocabulary sdmxdim: , cube: , meta: , qudt: ; 
     void:dataDump <https://raw.githubusercontent.com/okfde/lod-budget-vocab/refs/heads/main/data/haushalt_vocab.ttl> ;
@@ -41,4 +42,81 @@ hh:impressum
     schema:name "Impressum"@de ;
     schema:name "Imprint"@en ;
     schema:about hh: ;
+.
+
+hh:openDataProject
+    a schema:Project ;
+    schema:name "Offene Verwaltungsdaten"@de ;
+    schema:name "Open Data"@en ;
+    schema:url <https://okfn.de/projekte/opendata/> ;
+.
+
+hh:okfn
+    # s. auch https://github.com/berlinonline/lod-berlin-bo/blob/main/data/static/berlinonline.ttl
+    a schema:Organization ;
+    schema:name "Open Knowledge Foundation Deutschland e.V."@de ;
+    schema:address [
+        a schema:PostalAddress ;
+        schema:streetAddress "Singerstr. 109" ;
+        schema:postalCode "10179" ;
+        schema:addressLocality "Berlin" ;
+        schema:addressCountry "DE" ;
+    ] ;
+    schema:telephone "+49-30-97894230" ;
+    schema:taxID "DE278022128" ;
+    schema:email <mailto:opendata@okfn.de> ;
+    schema:identifier [
+        a schema:PropertyValue ;
+        schema:propertyID "Vereinsregisternummer"@de ;
+        schema:value "VR 30468 B" ;
+        lodsg:registerGericht hh:amtsgerichtCharlottenburg ;
+    ] ;
+    lodsg:boardMember hh:elinaEickstaedt, hh:leaGimpel, hh:stefanHeumann, hh:kristinaKlein, hh:gabrieleCKlug, hh:fionaKrakenbuerger, hh:felixReda ;
+.
+
+hh:amtsgerichtCharlottenburg
+    a schema:Organization ;
+    schema:name "Amtsgericht Berlin-Charlottenburg" ;
+.
+
+hh:elinaEickstaedt
+    a schema:Person ;
+    schema:name "Elina Eickstädt" ;
+    schema:familyName "Eickstädt";
+.
+
+hh:leaGimpel
+    a schema:Person ;
+    schema:name "Lea Gimpel" ;
+    schema:familyName "Gimpel";
+.
+
+hh:stefanHeumann
+    a schema:Person ;
+    schema:name "Stefan Heumann" ;
+    schema:familyName "Heumann";
+.
+
+hh:kristinaKlein
+    a schema:Person ;
+    schema:name "Kristina Klein" ;
+    schema:familyName "Klein";
+.
+
+hh:gabrieleCKlug
+    a schema:Person ;
+    schema:name "Gabriele C. Klug" ;
+    schema:familyName "Klug";
+.
+
+hh:fionaKrakenbuerger
+    a schema:Person ;
+    schema:name "Fiona Krakenbürger" ;
+    schema:familyName "Krakenbürger";
+.
+
+hh:felixReda
+    a schema:Person ;
+    schema:name "Felix Reda" ;
+    schema:familyName "Reda";
 .

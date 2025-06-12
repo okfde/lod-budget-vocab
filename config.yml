@@ -36,7 +36,7 @@ default_template: "berlin.lod.basetheme/default.html.jinja"
 # (Everything not included in the mapping will use the default template.)
 class_template_mappings:
   "void:Dataset": "berlin.lod.basetheme/dataset.html.jinja"
-  "lodsg:ImprintPage": "berlin.lod.basetheme/imprint.html.jinja"
+  "lodsg:ImprintPage": "imprint.html.jinja"
 
 themes:
     - berlin.lod.basetheme
