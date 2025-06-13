@@ -6,6 +6,7 @@
 @prefix lor: <https://berlinonline.github.io/lod-berlin-lor/> .
 @prefix meta: <https://cube.link/meta/> .
 @prefix organigram: <https://berlin.github.io/lod-organigram/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,7 +18,7 @@
 
 
 hh:
-    a void:Dataset ;
+    a void:Dataset, owl:Ontology ;
     dct:title "LOD-Vokabular Landeshaushaltsdaten "@de ;
     dct:title "LOD vocabulary for German state level budget data"@en ;
     dct:description "Vokabular für Haushaltsdaten auf Landesebene als Linked Data"@de ;

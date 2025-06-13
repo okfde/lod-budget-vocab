@@ -1,0 +1,52 @@
+{% extends 'berlin.lod.vocabtheme/voc_base.html.jinja' %}
+
+{% block info_table_content%}
+  {{ super() }}
+
+  {% set part_of = node | rdf_property(SCHEMA.isPartOf) %}
+  {% for container in part_of %}
+    <tr>
+      <td>Teil von:</td>
+      <td>
+        <a href="{{ container | relative_uri }}">
+          {{ container | rdf_property_any(HH.nummer) }} ({{ container | description_any(languages=['de']) }})
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+
+  {% set nummer = node | rdf_property_any(HH.nummer) %}
+  {% if nummer %}
+    <tr>
+      <td>Nummer:</td>
+      <td>{{ nummer }}</td>
+    </tr>
+  {% endif %}
+
+{% endblock info_table_content %}
+
+{% block content %}
+  {{ super() }}
+
+  {% set parts = node | rdf_inverse_property(SCHEMA.isPartOf) %}
+
+  {% if parts %}
+    <div class="row">
+      <div class="col">
+        <h2>Unterteilungen von {{ title }}</h2>
+        <ul class="list--columns">
+          {% for part in parts | sort %}
+            <li>
+              <div class="list--columns--inner">
+                <a href="{{ part | relative_uri }}">
+                  {{ part | rdf_property_any(HH.nummer) }} ({{ part | description_any(languages=['de']) }})
+                </a>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+
+{% endblock content%}

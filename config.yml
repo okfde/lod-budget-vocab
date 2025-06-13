@@ -19,7 +19,9 @@ prefixes:
   foaf: http://xmlns.com/foaf/0.1/
   hh: https://okfde.github.io/lod-budget-vocab/
   lodsg: https://berlinonline.github.io/lod-sg/
+  meta: https://cube.link/meta/
   org: http://www.w3.org/ns/org#
+  owl: http://www.w3.org/2002/07/owl#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   schema: https://schema.org/
@@ -35,8 +37,17 @@ default_template: "berlin.lod.basetheme/default.html.jinja"
 # a mapping from RDF classes to templates:
 # (Everything not included in the mapping will use the default template.)
 class_template_mappings:
-  "void:Dataset": "berlin.lod.basetheme/dataset.html.jinja"
+  "void:Dataset": "dataset_vocab.html.jinja"
   "lodsg:ImprintPage": "imprint.html.jinja"
+  "rdfs:Class": "class.html.jinja"
+  "rdf:Property": "berlin.lod.vocabtheme/voc_property.html.jinja"
+  "hh:Funktion": "in_hierarchy.html.jinja"
+  "hh:Oberfunktion": "in_hierarchy.html.jinja"
+  "hh:Hauptfunktion": "in_hierarchy.html.jinja"
+  "hh:Gruppe": "in_hierarchy.html.jinja"
+  "hh:Obergruppe": "in_hierarchy.html.jinja"
+  "hh:Hauptgruppe": "in_hierarchy.html.jinja"
+  "hh:ArtDerAngabe": "in_hierarchy.html.jinja"
 
 themes:
     - berlin.lod.basetheme

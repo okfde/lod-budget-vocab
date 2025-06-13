@@ -1,0 +1,77 @@
+{% extends 'berlin.lod.vocabtheme/voc_class.html.jinja' %}
+{% set asset_path = asset_path | relative_uri %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ asset_path  + 'assets/style.css'}}" />
+{% endblock styles %}
+
+{% block info_table_content%}
+  {{ super() }}
+
+  {% set above_in_hierarchy = node | rdf_inverse_property(META.nextInHierarchy) %}
+  {% for class in above_in_hierarchy %}
+    <tr>
+      <td>Oberhalb in Hierarchie:</td>
+      <td>
+        <a href="{{ class | relative_uri }}">
+          {{ class | title_any(languages=['de']) }}
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+
+  {% set below_in_hierarchy = node | rdf_property(META.nextInHierarchy) %}
+  {% for class in below_in_hierarchy %}
+    <tr>
+      <td>Unterhalb in Hierarchie:</td>
+      <td>
+        <a href="{{ class | relative_uri }}">
+          {{ class | title_any(languages=['de']) }}
+        </a>
+      </td>
+    </tr>
+  {% endfor %}
+
+  {% set nummer = node | rdf_property_any(HH.nummer) %}
+  {% if nummer %}
+    <tr>
+      <td>Nummer:</td>
+      <td>{{ nummer }}</td>
+    </tr>
+  {% endif %}
+
+{% endblock info_table_content %}
+
+
+{% block content %}
+  {{ super() }}
+
+  {% block instances %}
+    {% set instances = node | rdf_inverse_property(RDF.type) %}
+    {% set with_nummer = [ HH.Funktion, HH.Oberfunktion, HH.Hauptfunktion, HH.Gruppe, HH.Obergruppe, HH.Hauptgruppe ] %}
+    {% if instances %}
+      <div class="row">
+        <div class="col">
+          <h2>Instanzen von {{ title }}</h2>
+          <ul class="list--columns">
+            {% for instance in instances | sort %}
+              <li>
+                <div class="list--columns--inner">
+                  <a href="{{ instance | relative_uri }}">
+                    {% if node in with_nummer %}
+                      {{ instance | rdf_property_any(HH.nummer) }} ({{ instance | description_any(languages=['de']) }})
+                    {% else %}
+                      {{ instance | title_any(languages=['de']) }}
+                    {% endif %}
+                  </a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock instances %}
+
+{% endblock content%}

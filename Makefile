@@ -10,7 +10,7 @@ data/temp/void.nt: void.ttl data/temp
 data/temp/haushalt_vocab.nt: data/haushalt_vocab.ttl
 	rdfpipe -i turtle -o ntriples $< > $@
 
-data/temp/all.nt: data/temp/void.nt data/temp/haushalt_vocab.nt
+data/temp/all.nt: data/temp/void.nt data/temp/haushalt_vocab.nt data/defined_by.nt
 	rdfpipe -i ntriples -o ntriples $^ > $@
 
 _site:
