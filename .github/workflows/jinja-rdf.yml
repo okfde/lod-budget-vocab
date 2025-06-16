@@ -39,10 +39,10 @@ jobs:
           make install_templates
       - name: Install dependencies
         run: |
-          sudo apt-get install openjdk-18-jdk
+          sudo apt-get install openjdk-21-jdk
       - name: Install Apache Jena
         run: |
-          curl --location --silent --show-error --fail --retry-connrefused --retry 3 --output jena.tar.gz https://archive.apache.org/dist/jena/binaries/apache-jena-4.9.0.tar.gz
+          curl --location --silent --show-error --fail --retry-connrefused --retry 3 --output jena.tar.gz https://archive.apache.org/dist/jena/binaries/apache-jena-5.4.0.tar.gz
           tar zxf jena.tar.gz
           sudo mv apache-jena* /opt/jena
           echo "/opt/jena/bin" >> $GITHUB_PATH
