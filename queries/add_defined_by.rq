@@ -1,0 +1,9 @@
+PREFIX hh: <https://okfde.github.io/lod-budget-vocab/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT {
+    ?s rdfs:isDefinedBy hh:
+} WHERE {
+    ?s ?p ?o
+    FILTER(STRSTARTS(STR(?s), STR(hh:)))
+}
