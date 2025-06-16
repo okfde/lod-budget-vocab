@@ -1,0 +1,82 @@
+{% extends 'berlin.lod.basetheme/dataset.html.jinja' %}
+{% import 'berlin.lod.vocabtheme/voc_helper.html.jinja' as voc_helper with context %}
+
+{% block content %}
+    {{ super() }}
+
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+
+      {% block class_list %}
+        {% set classes_query = '''
+          SELECT ?class
+          WHERE {
+            ?class rdfs:isDefinedBy ?resource_uri .
+            { ?class a owl:Class . } UNION
+            { ?class a rdfs:Class . }
+          } ORDER BY ?class
+          '''
+        %}
+        {% set results = node | sparql_query(classes_query) %}
+        {% if results %}
+            <div class="col">
+              {{ voc_helper.term_list(results, title="Klassen", term_var='class', title_languages=['de'])}}
+            </div>
+        {% endif %}
+      {% endblock class_list%}
+
+      {% block property_list %}
+        {% set properties_query = '''
+          SELECT ?property
+          WHERE {
+              ?property rdfs:isDefinedBy ?resource_uri .
+              { ?property a rdf:Property . } UNION
+              { ?property a owl:ObjectProperty . } UNION
+              { ?property a owl:AnnotationProperty . } UNION
+              { ?property a owl:DatatypeProperty . }
+          } ORDER BY ?property
+          '''
+        %}
+        {% set results = node | sparql_query(properties_query) %}
+        {% if results %}
+            <div class="col">
+              {{ voc_helper.term_list(results, title="Properties", term_var='property', title_languages=['de'])}}
+            </div>
+        {% endif %}
+      {% endblock property_list %}
+
+      {% block other_list %}
+        {% set other_query = '''
+          SELECT ?term ?type
+          WHERE {
+            ?term 
+              a ?type ;
+              rdfs:isDefinedBy ?resource_uri .
+            FILTER(NOT EXISTS {
+                { ?term a owl:Class } UNION
+                { ?term a rdfs:Class } UNION
+                { ?term a rdf:Property } UNION
+                { ?term a owl:ObjectProperty} UNION
+                { ?term a owl:DatatypeProperty} UNION
+                { ?term a owl:AnnotationProperty} UNION
+                { ?term a hh:ArtDerAngabe} UNION
+                { ?term a hh:Funktion} UNION
+                { ?term a hh:Gruppe} UNION
+                { ?term a hh:Hauptfunktion} UNION
+                { ?term a hh:Hauptgruppe} UNION
+                { ?term a hh:Oberfunktion} UNION
+                { ?term a hh:Obergruppe}
+            })
+          } ORDER BY ?type ?term
+          '''
+        %}
+        {% set results = node | sparql_query(other_query) %}
+        {% if results %}
+            <div class="col">
+              {{ voc_helper.term_list(results, title='Andere', type_var='type', title_properties=[SCHEMA.name, SCHEMA.description], title_languages=['de'])}}
+            </div>
+        {% endif %}
+      {% endblock other_list %}
+
+    </div>
+
+{% endblock content %}
